@@ -63,7 +63,10 @@
 ###
 
 checkNull <- function(x) {
-  if (!exists(as.character(substitute(x)))) {
+  print(as.character(substitute(x)))
+  #if (!exists(as.character(substitute(x)))) { #NOTE: This was breaking
+  #if (!exists(as.character(x))) { 
+  if (!any(sapply(as.character(substitute(x)), exists))) { #NOTE: This was breaking
     return(NULL)
   } else if (is.null(x)) {
     return(NULL)

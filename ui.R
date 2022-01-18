@@ -15,7 +15,7 @@ source("panels/tree-ui.R", local = TRUE)
 source("panels/Help-ui.R", local = TRUE)
 
 shinyUI(dashboardPage(
-dashboardHeader(title = "Easy16S"),
+dashboardHeader(title = "metabrowser"),
   dashboardSidebar(
     actionButton("dataButton",
                  "Select your data",
@@ -77,7 +77,7 @@ dashboardHeader(title = "Easy16S"),
                menuSubItem("Table", tabName = "betaTable")
       ),
       menuItem("PCA", tabName = "pca", icon = icon("bullseye")),
-      menuItem("Differential expression analysis", tabName = "deseq", icon = icon("balance-scale-left")),
+      menuItem("Differential abundance analysis", tabName = "deseq", icon = icon("balance-scale-left")),
       menuItem("Phylogenetic tree", tabName = "tree", icon = icon("tree")),
       menuItem("Help", tabName = "Help", icon = icon("info-circle"))
   )),

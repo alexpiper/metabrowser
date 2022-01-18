@@ -72,17 +72,20 @@ output$barplotUI <- renderUI({
   )
 })
 
+
+# Display plot ---------------------------------------------------------
 output$barplot <- metaRender2(renderPlot, {
   validate(need(physeq(), "Requires an abundance dataset"),
            need(input$barplotShowRank, ""))
   data <- physeq()
-  
+
+  # Set up facetting
   barplotGrid <- if (!is.null(checkNull(input$barplotGrid))) {
     metaExpr({
       facet_grid(..(paste(".", "~", input$barplotGrid)), scales = "free_x", space = "free")
     })
   }
-  
+  # Create plot
   metaExpr({
     p <- plot_composition(
       physeq = data,
@@ -96,6 +99,8 @@ output$barplot <- metaRender2(renderPlot, {
   })
 })
 
+
+# Display code ------------------------------------------------------------
 observeEvent(input$barplot_output_code,
              {
                displayCodeModal(

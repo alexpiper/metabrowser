@@ -6,7 +6,7 @@ dataInput <- function(failed = FALSE) {
     if (failed)
     {
       div(
-        "Invalide dataset. \n Please try again \n", 
+        "Invalid dataset. \n Please try again \n", 
         style = "font-weight: bold; color: red; text-align: center; white-space: pre-line"
         )
     }, 
@@ -20,7 +20,6 @@ dataInput <- function(failed = FALSE) {
       choices = list(
         "Demo" = "demo",
         "Input data" = "input",
-        "RData" = "rdata",
         "RDS" = "rds"
       ),
       selected = "demo"
@@ -104,11 +103,6 @@ output$dataUI <- renderUI({
         placeholder = "data.fasta"
       )
     ),
-    "rdata" = fileInput(
-      inputId = "fileRData",
-      label = "RData where 'data' is a phyloseq object : ",
-      placeholder = "data.RData"
-    ),
     "rds" = fileInput(
       inputId = "fileRDS",
       label = "RDS with a phyloseq object : ",
@@ -150,14 +144,6 @@ observeEvent(input$okData, {
               )
             }
             d
-          },
-        "rdata" =
-          {
-            message <- as.character(input$fileRData$name)
-            ne <- new.env()
-            if (!is.null(input$fileRData))
-              {load(input$fileRData$datapath, envir = ne)}
-            ne$data
           },
         "rds" = 
           {
