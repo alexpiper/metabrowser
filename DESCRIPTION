@@ -1,0 +1,36 @@
+Package: metabrowser
+Title: metabrowser
+Version: 0.1
+Authors@R: 
+    person(given = "Alexander",
+           family = "Piper",
+           role = c("aut", "cre"),
+           email = "alexander.piper@agriculture.vic.gov.au")
+Description: a user-friendly Shiny interface for analysis,
+    visualisation, and reporting of metabarcoding data.
+License: GPL-3
+Imports:
+    shiny,
+    phyloseq,
+    devtools,
+    BiocManager,
+    readxl,
+    DT,
+    phyloseq.extended,
+    shinyWidgets,
+    factoextra,
+    tibble,
+    reshape2,
+    scales,
+    dplyr,
+    microbenchmark,
+    shinydashboard,
+    glue,
+    shinymeta,
+    ggplot2,
+    magrittr,
+    shinycustomloader
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
