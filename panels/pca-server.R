@@ -18,9 +18,9 @@ output$pcaUI <- renderUI({
       "pcaType",
       label = "Type of graph : ",
       choices = list(
-        "Biplot of individuals and variables" = "biplot",
-        "Graph of individuals" = "ind",
-        "Graph of variables" = "var"
+        "Biplot of samples and loadings" = "biplot",
+        "Graph of samples" = "ind",
+        "Graph of loadings" = "var"
       ),
       selected = "biplot",
       inline = TRUE
@@ -35,10 +35,10 @@ output$pcaUI <- renderUI({
     textInput("pcaTitle",
               label = "Title : ",
               value = "Principal Component Analysis"),
-    h4(strong("Individuals ( = Samples)")),
+    h4(strong("Samples")),
     checkboxGroupInput(
       "pcaGeomInd",
-      label = "Geometry for individuals  : ",
+      label = "Geometry for Samples  : ",
       choices = c("point", "text"),
       selected = c("point", "text"),
       inline = TRUE
@@ -51,10 +51,10 @@ output$pcaUI <- renderUI({
     checkboxInput("pcaEllipse",
                   label = "Add ellipses",
                   value = FALSE),
-    h4(strong("Variables ( = OTU)")),
+    h4(strong("OTUs")),
     checkboxGroupInput(
       "pcaGeomVar",
-      label = "Geometry for variables : ",
+      label = "Geometry for OTUs : ",
       choices = c("arrow", "text"),
       selected = c("arrow", "text"),
       inline = TRUE
@@ -77,7 +77,12 @@ output$pca <- metaRender2(renderPlot, {
   data <- physeq()
   
   pca <- metaExpr({
-    data_matrix <- as.data.frame(t(otu_table(data)))
+    if(taxa_are_rows(data)){
+      data_matrix <- as.data.frame(t(otu_table(data)))
+    } else {
+      data_matrix <- as.data.frame(as(otu_table(data), "matrix"))
+    }
+    
     pca <- prcomp(data_matrix[colSums(data_matrix) != 0],
                   center = ..("center" %in% input$pcaSetting),
                   scale = ..("scale" %in% input$pcaSetting)

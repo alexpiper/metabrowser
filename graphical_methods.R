@@ -681,7 +681,17 @@ g_legend<-function(a.gplot){
     legend <- tmp$grobs[[leg]]
     legend
 }
-
+# Get max number of taxa for bar plot
+get_max_taxa <- function(ps, filt_rank=NULL, filt_name=NULL){
+    if(!is.null(filt_rank) & !is.null(filt_name)){
+        taxtab <- as.data.frame(tax_table(ps)) 
+        filt_pos <- which(rank_names(ps) == filt_rank)
+        out <- sum(taxtab[,filt_pos] == filt_name)
+    } else{
+        out <- ntaxa(ps)
+    }
+    return(out)
+}
 
 ################################################################################
 # Define S3 generic extract_eigenvalue function

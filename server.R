@@ -3,6 +3,7 @@ options(shiny.maxRequestSize = 30 * 1024 ^ 2)
 suppressMessages(suppressWarnings(library(shinydashboard)))
 suppressMessages(suppressWarnings(library(shinymeta)))
 suppressMessages(suppressWarnings(library(phyloseq)))
+suppressMessages(suppressWarnings(library(speedyseq)))
 #suppressMessages(suppressWarnings(library(phyloseq.extended)))
 suppressMessages(suppressWarnings(library(ape)))
 suppressMessages(suppressWarnings(library(ggplot2)))
@@ -33,6 +34,8 @@ shinyServer
   physeq <- reactiveVal()
   raw_physeq <- reactiveVal()
   select_physeq <- reactiveVal()
+  subset_physeq <- reactiveVal()
+  filter_physeq <- reactiveVal()
   transform_physeq <- reactiveVal()
   
   showModal(dataInput())
@@ -41,10 +44,15 @@ shinyServer
     showModal(dataInput())
   })
   
+  observeEvent(input$selectButton, {
+    showModal(subsetSample())
+  })
   observeEvent(input$filterButton, {
     showModal(filterSample())
   })
-  
+  observeEvent(input$taxaButton, {
+    showModal(subsetTaxa())
+  })
   observeEvent(input$transformButton, {
     showModal(transformSample())
   })

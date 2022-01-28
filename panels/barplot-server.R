@@ -35,10 +35,11 @@ output$barplotNbTaxaUI <- renderUI({
   validate(need(physeq(), ""))
   sliderInput(
     "barplotNbTaxa",
-    label = "Number of sub-taxa : ",
+    label = "Show the n most abundant OTU  : ",
     min = 1,
-    #max = sum(tax_table(tax_glom(physeq(), rank_names(physeq())[1+as.integer(input$barplotFilterRank)]))[, as.integer(input$barplotFilterRank)]==input$barplotTaxa)
-    max = 30,
+    max = get_max_taxa(ps = physeq(), filt_rank = input$barplotFilterRank, filt_name =  input$barplotTaxa),
+    #max = sum(tax_table(tax_glom(physeq(), rank_names(physeq())[1+as.integer(input$barplotFilterRank)]))[, as.integer(input$barplotFilterRank)]==input$barplotTaxa),
+    #max = 30,
     value = 10
   )
 })
@@ -92,9 +93,12 @@ output$barplot <- metaRender2(renderPlot, {
       taxaRank1 = ..(checkNull(input$barplotFilterRank)),
       taxaSet1 = ..(input$barplotTaxa),
       taxaRank2 = ..(input$barplotShowRank),
+      fill = ..(input$barplotShowRank),
       numberOfTaxa = ..(input$barplotNbTaxa),
       x = ..(input$barplotX)
-    )
+    ) +
+      scale_x_discrete(expand=c(0,0))+
+      scale_y_continuous(expand=c(0,0))
     p + ..(barplotGrid)
   })
 })

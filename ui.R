@@ -22,8 +22,18 @@ dashboardHeader(title = "metabrowser"),
                  icon = icon("upload"),
                  width = 200
                  ),
-    actionButton("filterButton",
+    actionButton("selectButton",
                  "Select some samples",
+                 icon = icon("vial"),
+                 width = 200
+                 ),
+    actionButton("taxaButton",
+                 "Select some taxa",
+                 icon = icon("bug"),
+                 width = 200
+    ),
+    actionButton("filterButton",
+                 "Filter by abundance",
                  icon = icon("filter"),
                  width = 200
                  ),
