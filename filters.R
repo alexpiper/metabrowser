@@ -4,14 +4,6 @@
 #' @param mintaxa Minimum number of taxa that should be present in a sample (default, 10)
 #'
 #' @return Trimmed phyloseq object (All samples will have >= N taxa)
-#' @export
-#'
-#' @examples
-#' data("esophagus")
-#' esophagus
-#' phyloseq_richness_filter(esophagus, mintaxa = 30)
-#' phyloseq_richness_filter(esophagus, mintaxa = 100)
-#'
 phyloseq_richness_filter <- function(physeq, mintaxa = 10){
     
     ## Estimate number of OTUs per sample
@@ -42,13 +34,6 @@ phyloseq_richness_filter <- function(physeq, mintaxa = 10){
 #' @param frac The minimum cutoff for the relative OTU abundance
 #' @details This function searches for taxa with small mean relative abundance and removes them. Result will be returned with original counts in the abundance table.
 #' @return Phyloseq object with a subset of taxa.
-#' @export
-#'
-#' @examples
-#' data("esophagus")
-#' phyloseq_filter_taxa_rel_abund(esophagus, frac = 0.01)
-#' phyloseq_filter_taxa_rel_abund(esophagus, frac = 0.1)
-#'
 phyloseq_filter_taxa_rel_abund <- function(physeq, frac = 1e-4){
     
     # require(phyloseq)
@@ -97,12 +82,6 @@ phyloseq_filter_taxa_rel_abund <- function(physeq, frac = 1e-4){
 #' If you wanted to retain OTUs with at least 1\% total abundance, you must specify, 0.01.
 #'
 #' @return Phyloseq object with a subset of taxa.
-#' @export
-#' @seealso http://qiime.org/scripts/filter_otus_from_otu_table.html
-#' @examples
-#' data("esophagus")
-#' phyloseq_filter_taxa_tot_fraction(esophagus, frac = 0.01)
-#'
 phyloseq_filter_taxa_tot_fraction <- function(physeq, frac = 0.01){
     
     # require(phyloseq)
@@ -129,22 +108,6 @@ phyloseq_filter_taxa_tot_fraction <- function(physeq, frac = 0.01){
 #' Abundance threshold defines if the OTU should be preserved if its abundance is larger than threshold (e.g., >= 50 reads).
 #' Parameter "threshold_condition" indicates whether OTU should be kept if it occurs in many samples AND/OR it has high abundance.
 #' @return  Phyloseq object with a subset of taxa.
-#' @seealso \code{\link{phyloseq_prevalence_plot}}
-#' @export
-#'
-#' @examples
-#' data(GlobalPatterns)
-#' GlobalPatterns  # 19216 taxa
-#'
-#' # OTUs that are found in at least 5% of samples
-#' phyloseq_filter_prevalence(GlobalPatterns, prev.trh = 0.05, abund.trh = NULL)  # 15389 taxa
-#'
-#' # The same, but if total OTU abundance is >= 10 reads it'll be preserved too
-#' phyloseq_filter_prevalence(GlobalPatterns, prev.trh = 0.05, abund.trh = 10, threshold_condition = "OR")  # 15639 taxa
-#'
-#' # Include only taxa with more than 10 reads (on average) in at least 10% samples
-#' phyloseq_filter_prevalence(GlobalPatterns, prev.trh = 0.1, abund.trh = 10, abund.type = "mean", threshold_condition = "AND")  # 4250 taxa
-#'
 phyloseq_filter_prevalence <- function(physeq, prev.trh = 0.05, abund.trh = NULL, threshold_condition = "OR", abund.type = "total"){
     
     ## Threshold validation
@@ -212,21 +175,6 @@ phyloseq_filter_prevalence <- function(physeq, prev.trh = 0.05, abund.trh = NULL
 #' For this purpose `minabund` parameter should be provided in a range of (0,1] (e.g., use `minabund = 0.1, relabund = TRUE` to remove OTUs with relative abundance < 10% in each sample).
 #' 
 #' @return Phyloseq object with a filtered data.
-#' @export
-#'
-#' @examples
-#' # Load data
-#' data(GlobalPatterns)
-#'
-#' # Trim GlobalPatterns data (19216 taxa) by removing OTUs with less that 10 reads
-#' GP1 <- phyloseq_filter_sample_wise_abund_trim(GlobalPatterns, minabund = 10) # 10605 taxa
-#'
-#' # Trim GlobalPatterns data by removing OTUs with relative abundance less than 1%
-#' GP2 <- phyloseq_filter_sample_wise_abund_trim(GlobalPatterns, minabund = 0.01, relabund = TRUE) # 258 taxa
-#'
-#' # Compare raw and trimmed data
-#' phyloseq_summary(GlobalPatterns, GP1, GP2, cols = c("GlobalPatterns", "Trimmed 10 reads", "Trimmed 1 percent"))
-#'
 phyloseq_filter_sample_wise_abund_trim <- function(physeq, minabund = 10, relabund = FALSE, rm_zero_OTUs = TRUE){
     
     ## Censore OTU abundance
@@ -274,10 +222,6 @@ phyloseq_filter_sample_wise_abund_trim <- function(physeq, minabund = 10, relabu
 #' @param perc Percentage of the most abundant taxa to retain
 #' @param n Number of the most abundant taxa to retain (this argument will override perc argument)
 #' @return Phyloseq object with a filtered data.
-#' @export
-#'
-#' @examples
-#'
 phyloseq_filter_top_taxa <- function(physeq, perc = 10, n = NULL){
     
     ## Arguments validation
@@ -299,39 +243,4 @@ phyloseq_filter_top_taxa <- function(physeq, perc = 10, n = NULL){
     physeq_pruned <- phyloseq::prune_taxa(keepTaxa, physeq)
     
     return(physeq_pruned)
-}
-
-
-
-#' @title Check the range of the top-taxa filtering values to determine the optimal threshold.
-#' @description This function performs taxa filtering by retaining the most abundant taxa.
-#' A range of abundance percentages (5 - 95\%) will be explored.
-#' @param physeq A phyloseq-class object
-#' @param show_plot Logical; if TRUE, shows the plot on screen
-#' @return ggplot-object.
-#' @export
-#'
-#' @examples
-#'
-phyloseq_filter_top_taxa_range <- function(physeq, show_plot = TRUE){
-    percs <- seq(5, 95, 5)
-    
-    fr <- plyr::mlply(.data = data.frame(perc = percs), .fun = function(...){ phyloseq_filter_top_taxa(physeq, ...) })
-    names(fr) <- percs
-    
-    fr_tab <- plyr::ldply(.data = fr, .fun = function(z){
-        sz <- phyloseq::sample_sums(z)
-        res <- data.frame(Sample = names(sz), Preserved = sz)
-        return(res)
-    })
-    
-    pp <- ggplot(data = fr_tab, aes(x = perc, y = Preserved, group = Sample)) +   # color = Sample
-        geom_vline(xintercept=75, color="grey", linetype = "longdash") +
-        geom_line() +
-        geom_point() +
-        labs(x = "Number of most abundant taxa retained, %", y = "Percentage of total sample abundance") +
-        theme(legend.position = "none")
-    
-    if(show_plot == TRUE){ print(pp) }
-    invisible(pp)
 }
