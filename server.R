@@ -1,3 +1,4 @@
+cat(file=stderr(), paste0(R.version))
 options(shiny.maxRequestSize = 30 * 1024 ^ 2)
 
 suppressMessages(suppressWarnings(library(shinydashboard)))

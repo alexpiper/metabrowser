@@ -32,6 +32,16 @@ output$pcaUI <- renderUI({
       selected = c(1, 2),
       inline = TRUE
     ),
+    radioButtons(
+      inputId = "plot_rank",
+      label = "Taxonomic rank for OTU labels : ",
+      inline = TRUE,
+      choices = c(
+        phyloseq::rank_names(subset_physeq(), errorIfNULL = FALSE),
+        "OTU"
+      ),
+      selected = phyloseq::rank_names(subset_physeq(), errorIfNULL = FALSE)[length(phyloseq::rank_names(subset_physeq(), errorIfNULL = FALSE))]
+    ),
     textInput("pcaTitle",
               label = "Title : ",
               value = "Principal Component Analysis"),
@@ -76,6 +86,11 @@ output$pca <- metaRender2(renderPlot, {
     need(length(input$pcaAxes) == 2, "Requires two projections axes"))
   data <- physeq()
   
+  #Rename plot rank if not selected
+  original_names <- taxa_names(physeq())
+  if(!input$plot_rank == "OTU"){
+    taxa_names(data) <- paste0(original_names,"_", tax_table(data)[,input$plot_rank])
+  } 
   pca <- metaExpr({
     if(taxa_are_rows(data)){
       data_matrix <- as.data.frame(t(otu_table(data)))
