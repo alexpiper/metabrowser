@@ -342,19 +342,7 @@ output$taxaUI <- renderUI({
   observeEvent(input$fileTaxlist, {
     taxlist <<- readLines(input$fileTaxlist$datapath)
   })
-  
- ## Have a select from list instead
- #
- #is_even <- function(input){
- #  if (input == 0){
- #    return(FALSE)
- #  } else if (input%%2 == 0){
- #    return(TRUE)
- #  } else {
- #    return(FALSE)
- #  }
- #}
-  
+
   # Handle the select all checkbox
   observe({
     curr_select <- choices
@@ -385,38 +373,6 @@ output$taxaUI <- renderUI({
                              inline = TRUE)
   })
   
- # observe({
- #   sel_all <- input$selectAll
- #   inc_tax <- input$includeList
- #   exc_tax <- input$excludeList
- #   if (is.null(taxlist)){
- #     inc_tax <- 0
- #     exc_tax <- 0
- #   }
- #   curr_select <- choices
- #   # select all button only works when taxlist is empty
- #     if(all(c(sel_all, inc_tax, exc_tax) == 0)){
- #       return(NULL)
- #     } else {
- #       if (is_even(sel_all) & !is_even(inc_tax) & !is_even(exc_tax)){
- #          curr_select <- choices
- #          print("selecting all")
- #       } else if (!is_even(inc_tax) & !is_even(exc_tax)) | (!is_even(sel_all) & !is_even(inc_tax) & is_even(exc_tax))){
- #         curr_select <- NULL
- #         print("unselecting all")
- #       } else if ((!is_even(sel_all) & is_even(inc_tax) & !is_even(exc_tax)) | (is_even(sel_all) & is_even(inc_tax) & !is_even(exc_tax))) {
- #         curr_select <- taxlist
- #         print("including taxlist only")
- #       }
- #       updateCheckboxGroupInput(session = session,
- #                              inputId = "subsetCheck",
- #                              label = label,
- #                              choices = choices,
- #                              selected = curr_select,
- #                              inline = TRUE)
- #       }
- # })
-
   # Handle manual selecting
   checkboxGroupInput(inputId = "subsetCheck",
                      label = label,
@@ -426,18 +382,17 @@ output$taxaUI <- renderUI({
 })
 
 observeEvent(input$selectTaxa, {
-  if (is.null(input$subsetCheck)) 
-  {
+  if (is.null(input$subsetCheck)) {
     showModal(dataInput(failed = TRUE))
   } else {
     taxtab <- as.data.frame(tax_table(subset_physeq())) 
     filt_pos <- which(rank_names(subset_physeq()) == input$subsetCriteria)
-    to_subset <- rownames(taxtab)[taxtab[,filt_pos] == input$subsetCheck]
+    to_subset <- rownames(taxtab)[taxtab[,filt_pos] %in% input$subsetCheck]
     
-    subset_physeq(prune_taxa(taxa = to_subset, subset_physeq()))
-    #try(subset_physeq(prune_taxa(taxa = input$subsetCheck, subset_physeq())),
-    #  silent = TRUE,
-    #  outFile = showModal(dataInput(failed = TRUE)))
+    
+    try(subset_physeq(prune_taxa(taxa = to_subset, subset_physeq())),
+      silent = TRUE,
+      outFile = showModal(dataInput(failed = TRUE)))
     
     if (inherits(subset_physeq(), "phyloseq")) {
       message <- paste(input$subsetCheck, collapse = ", ")
@@ -456,89 +411,166 @@ observeEvent(input$selectTaxa, {
 filterSample <- function() {
   modalDialog(
     title = "Filter abundance data",
-    
-    radioButtons(
-      inputId = "filterFun",
-      label = "Filter function : ",
-      selected = NULL,
-      choices = c("Rarefaction" = "rare",
-                  "Proportional Transformation" = "prop", 
-                  "Square Root Transformation" = "sqrt", 
-                  "Square Root Proportional Transformation" = "sqrtprop", 
-                  "Centered Log-Ratio (CLR) Transformation" = "clr")
-    ),
-    
-    wellPanel(verbatimTextOutput("filterFun")),
-    
+    h4('OTU filtering'),
+    fluidRow(column(width=12,
+                    div(class="col-md-6",
+                        numericInput("filter_taxa_sums_threshold", "Taxa Min reads per sample.",
+                                        value=0, min=0, step=1))
+    )),
+    fluidRow(column(width=12,
+                    div(class="col-md-6",
+                        numericInputIcon("filter_taxa_ra_threshold", "Taxa Min relative abundance per sample.",
+                                     value=0, min=0, max=100, step=NA, icon = list(NULL, icon("percent"))))
+    )),
+    fluidRow(column(width=12,
+                    div(class="col-md-6",
+                        numericInputIcon("filter_taxa_mean_threshold", "Taxa mean relative abundance over whole dataset.",
+                                     value=0, min=0, max=100, step=NA, icon = list(NULL, icon("percent"))))
+    )),
+    fluidRow(column(width=12,
+                    div(class="col-md-6",
+                        numericInputIcon("filter_taxa_total_threshold", "Taxa relative abundance above fraction over whole dataset",
+                                     value=0, min=0, max=100, step=NA, icon = list(NULL, icon("percent"))))
+    )),
+    h4('Include only taxa with more than A reads (on average) in at least k% samples'),
+    fluidRow(column(width=12,
+                    div(class="col-md-6",
+                        numericInputIcon("filter_kOverA_count_threshold", "A -- The relative abundance value minmum threshold",
+                                     value=0, min=0, max=100, step=NA, icon = list(NULL, icon("percent"))), # TODO Change the step to 1 when reads is selected
+                    div(class="col-md-6",
+                        numericInputIcon("filter_kOverA_sample_threshold", "k - The proportion of samples in which a taxa exceeded A",
+                                     min=0, max=100, value=0, step=1, icon = list(NULL, icon("percent"))))
+    ))),
+    h4('Keep top N taxa'),
+    fluidRow(column(width=12,
+                    div(class="col-md-6",
+                        numericInput("filter_top_taxa", "Number of most abundant taxa to keep",
+                                     value=Inf, min=0, step=1))
+    )),
+    h4('Sample filtering'),
+    fluidRow(column(width=12,
+                    div(class="col-md-6",
+                        numericInput("filter_sample_sums_threshold", "Sample Min reads.",
+                                     value=0, min=0, step=1))
+    )),
+    fluidRow(column(width=12,
+                    div(class="col-md-6",
+                        numericInput("filter_sample_taxa_threshold", "Sample Min taxa",
+                                     value=0, min=0, step=1))
+    )),
     footer = tagList(modalButton("Cancel"),
                      actionButton(inputId = "filterData", label = "Filter")
     )
   )
 }
 
-output$filterFun <- renderText({
-  validate(need(input$filterFun, ""))
-  switch (input$filterFun,
-          "rare" = "data_rare <- rarefy_even_depth(data, rngseed = 314, replace = TRUE)",
-          "prop" = paste("count_to_prop <- function(x) {return( x / sum(x) )}", 
-                         "data_prop <- transform_sample_counts(data, count_to_prop)",
-                         sep = "\n"),
-          "sqrt" = "data_sqrt <- transform_sample_counts(data, sqrt)",
-          "sqrtprop" = paste("count_to_sqrtprop <- function(x) {return(sqrt(x / sum(x)))}", 
-                             "data_sqrtprop <- transform_sample_counts(data, count_to_sqrtprop)",
-                             sep = "\n"),
-          "clr" = paste("gm_mean <- function(x, na.rm=TRUE) {",
-                        "  return(exp(mean(log(x), na.rm=na.rm)))",
-                        "}",
-                        "clr <- function(x, base=exp(1)) {",
-                        "  x <- x+1",
-                        "  x <- log(x/gm_mean(x), base)",
-                        "  return(x)",
-                        "}", 
-                        "data_clr <- transform_sample_counts(data, clr)",
-                        sep = "\n")
-  )
-})
-
+#Update the use filtered data option on left
 observeEvent(input$filterData, {
   if (is.null(input$filterData)) 
   {
     removeModal()
   } else {
     shinyWidgets::updateSwitchInput(session = session, inputId = "useFiltf", value = FALSE)
+    
+    # Define filters
+    filter_all <- function(input, physeq){
+      
+      # Get initial phyloseq object
+      ps0 <- physeq
+      
+      # Per sample counts
+      if( input$filter_taxa_sums_threshold > 0 ){
+        ps0 <- phyloseq_filter_sample_wise_abund_trim(
+          ps0, 
+          minabund = input$filter_taxa_sums_threshold,
+          relabund = FALSE,
+          rm_zero_OTUs = TRUE)
+        
+      }
+      
+      # Per sample RA
+      if( input$filter_taxa_ra_threshold > 0 ){
+        ps0 <- phyloseq_filter_sample_wise_abund_trim(
+          ps0, 
+          minabund = 1/input$filter_taxa_ra_threshold,
+          relabund = TRUE,
+          rm_zero_OTUs = TRUE)
+        
+      }
+      
+      # Total dataset mean relative abundance.
+      if( input$filter_taxa_mean_threshold > 0 ){
+        ps0 <- phyloseq_filter_taxa_rel_abund(
+          ps0, 
+          frac = 1/input$filter_taxa_mean_threshold)
+      }
+      
+      #Remove taxa with abundance less then a certain fraction of total abundance.
+      if( input$filter_taxa_total_threshold > 0 ){
+        ps0 <- phyloseq_filter_taxa_tot_fraction(
+          ps0, 
+          frac = 1/input$filter_taxa_total_threshold)
+      }
+      
+      # K over A filtering 
+      if( input$filter_kOverA_sample_threshold > 1){
+        ps0 <- phyloseq_filter_prevalence(
+          ps0, 
+          prev.trh = 1/input$filter_kOverA_sample_threshold,
+          abund.trh = 1/input$filter_kOverA_count_threshold,
+          threshold_condition = "AND",
+          abund.type = "mean")
+      }
+      
+      # Extract most abundant taxa
+      if( input$filter_top_taxa > 0){
+        ps0 <- phyloseq_filter_top_taxa(
+          ps0, 
+          n = input$filter_top_taxa
+        )
+      }
+      
+      # then filter sample sums
+      if( input$filter_sample_sums_threshold > 0 ){
+        # Sample sums filtering
+        ps0 <- prune_samples({sample_sums(ps0) > input$filter_sample_sums_threshold}, ps0)
+      }
+      phyloseq_richness_filter <- function(physeq, mintaxa = 10){
+        
+        ## Estimate number of OTUs per sample
+        sp <- phyloseq::estimate_richness(physeq, measures = "Observed")
+        samples_to_keep <- rownames(sp)[ which(sp$Observed >= mintaxa) ]
+        
+        if(length(samples_to_keep) == 0){
+          stop("All samples will be removed.\n")
+        }
+        
+        if(length(samples_to_keep) == phyloseq::nsamples(physeq)){
+          cat("All samples will be preserved\n")
+          res <- physeq
+        }
+        
+        if(length(samples_to_keep) < phyloseq::nsamples(physeq)){
+          res <- phyloseq::prune_samples(samples = samples_to_keep, x = physeq)
+        }
+        
+        return(res)
+      }
+      # Sample richness filtering
+      if( input$filter_sample_taxa_threshold < Inf ){
+        ps0 <- phyloseq_richness_filter(ps0, mintaxa = input$filter_sample_taxa_threshold)
+      }
+      return(ps0)
+    }
+      
+    #apply_filters 
     try(
-      switch (input$filterFun,
-              "rare" = {
-                transform_physeq(rarefy_even_depth(select_physeq(), rngseed = 314, replace = TRUE))
-              },
-              "prop" = {
-                count_to_prop <- function(x) {return( x / sum(x) )}
-                transform_physeq(transform_sample_counts(select_physeq(), count_to_prop))
-              },
-              "sqrt" = {
-                transform_physeq(transform_sample_counts(select_physeq(), sqrt))
-              },
-              "sqrtprop" = {
-                count_to_sqrtprop <- function(x) {return(sqrt(x / sum(x)))}
-                transform_physeq(transform_sample_counts(select_physeq(), count_to_sqrtprop))
-              },
-              "clr" = {
-                gm_mean <- function(x, na.rm=TRUE) {
-                  return(exp(mean(log(x), na.rm=na.rm)))
-                }
-                clr <- function(x, base=exp(1)) {
-                  x <- x+1
-                  x <- log(x/gm_mean(x), base)
-                  return(x)
-                }
-                transform_physeq(transform_sample_counts(select_physeq(), clr))
-              }
-      ),
+      filter_physeq(filter_all(input, select_physeq())),
       silent = TRUE,
       outFile = showModal(dataInput(failed = TRUE)))
     
-    if (class(transform_physeq()) == "phyloseq") {
-      message(paste("[metabrowser] Filter data :", input$filterFun))
+    if (class(filter_physeq()) == "phyloseq") {
+      message("[metabrowser] Filtered data")
       shinyWidgets::updateSwitchInput(session = session, inputId = "useFiltf", disabled = FALSE)
       shinyWidgets::updateSwitchInput(session = session, inputId = "useFiltf", value = TRUE)
       removeModal()
@@ -548,6 +580,7 @@ observeEvent(input$filterData, {
   }
 })
 
+# Use filtered physeq if selected
 observeEvent(input$useFiltf,
              if (input$useFiltf) {
                physeq(filter_physeq())

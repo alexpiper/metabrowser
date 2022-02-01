@@ -2,6 +2,7 @@ options(shiny.maxRequestSize = 30 * 1024 ^ 2)
 
 suppressMessages(suppressWarnings(library(shinydashboard)))
 suppressMessages(suppressWarnings(library(shinymeta)))
+suppressMessages(suppressWarnings(library(shinyWidgets)))
 suppressMessages(suppressWarnings(library(phyloseq)))
 suppressMessages(suppressWarnings(library(speedyseq)))
 #suppressMessages(suppressWarnings(library(phyloseq.extended)))
@@ -13,12 +14,14 @@ suppressMessages(suppressWarnings(library(data.table)))
 suppressMessages(suppressWarnings(library(magrittr)))
 suppressMessages(suppressWarnings(library(factoextra)))
 suppressMessages(suppressWarnings(library(vegan)))
+#suppressMessages(suppressWarnings(library(metagMisc)))
 
 shinyServer
 (function(input, output, session)
 {  
   source("internals.R")
   source("graphical_methods.R")
+  source("filters.R")
   source("panels/dataInput.R", local = TRUE)
   source("panels/Summary-server.R", local = TRUE)
   source("panels/table-server.R", local = TRUE)

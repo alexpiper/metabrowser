@@ -49,6 +49,13 @@ dashboardHeader(title = "metabrowser"),
                               size = "mini",
                               width = 200
                               ),
+    shinyWidgets::switchInput("useFiltf",
+                              value = FALSE,
+                              label = HTML("Filtered&nbsp;data"),
+                              disabled = TRUE,
+                              size = "mini",
+                              width = 200
+    ),
     actionButton("downloadButton",
                  "Download data",
                  icon = icon("download"),
