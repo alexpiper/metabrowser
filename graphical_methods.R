@@ -128,6 +128,51 @@ ggrare <- function(physeq, step = 10, label = NULL, color = NULL, plot = TRUE, p
     invisible(p)
 }
 
+## Plot Functional annotation at taxaRank2 level within taxa taxaSet1 at taxaRank1 level
+## Restricts plot to numberOfTaxa taxa
+plot_function <- function(physeq,
+                          annot_table,
+                          annot_rank = "Family",
+                          x = "Sample",
+                          y = "Abundance",
+                          facet_grid = NULL) {
+    
+    colnames(annot_table) <- c(annot_rank, "annot")
+    
+    ggdata <- psmelt(physeq) %>%
+        dplyr::filter(Abundance > 0) %>%
+        dplyr::select(OTU, Sample, Abundance, rank_names(physeq)) %>%
+        group_by(Sample) %>%
+        mutate(tax = n_distinct(OTU)) %>%
+        ungroup() %>%
+        dplyr::left_join(annot_table) %>%
+        group_by(Sample, annot) %>%
+        summarise(Abundance = sum(Abundance), tax = sum(tax)) %>%
+        mutate_at(vars(Abundance, tax), ~ . / sum(., na.rm = TRUE) ) %>%
+        ungroup()
+    
+    p <- ggplot(ggdata, aes_string(x = x, y = y, fill = "annot", color = "annot", group = "Sample"))
+    ## Manually change color scale to assign grey to "Unknown" (if any)
+    if (!is.null(fill) && any(c("Unknown", "Other") %in% unique(ggdata[, fill]))) {
+        ranks <- as.character(unique(ggdata[, fill]))
+        ranks <- ranks[ ! ranks %in% c("Multi-affiliation", "Unknown", "Other")]
+        colvals <- c(gg_color_hue(length(ranks)),
+                     "grey75", "grey45", "black")
+        names(colvals) <- c(ranks, "Multi-affiliation", "Unknown", "Other")
+        ## Now add the manually re-scaled layer with Unassigned as grey
+        p <- p + scale_fill_manual(values=colvals) + scale_color_manual(values = colvals)
+        
+    }
+    p <- p + geom_bar(stat = "identity", position = "stack")
+    if ( !is.null(facet_grid)) {
+        p <- p + facet_grid(facets = facet_grid, scales = "free_x")
+    }
+    p <- p + theme(axis.text.x=element_text(angle=90), axis.title.x=element_blank()) +
+        scale_x_discrete(expand = c(0,0)) +
+        scale_y_continuous(expand = c(0,0))
+    return(p)
+}
+
 ## Plot composition at taxaRank2 level within taxa taxaSet1 at taxaRank1 level
 ## Restricts plot to numberOfTaxa taxa
 plot_composition <- function(physeq,

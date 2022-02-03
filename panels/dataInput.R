@@ -184,6 +184,7 @@ observeEvent(input$okData, {
     physeq(raw_physeq())
     transform_physeq(NULL)
     shinyWidgets::updateSwitchInput(session = session, inputId = "useTransf", disabled = TRUE, value = FALSE)
+    shinyWidgets::updateSwitchInput(session = session, inputId = "useFiltf", disabled = TRUE, value = FALSE)
     message(paste("[metabrowser] Correct upload with", input$dataset, "mode :", message))
     removeModal()
   } else {
@@ -312,11 +313,14 @@ subsetTaxa <- function() {
                 label = "Taxon list : ",
                 placeholder = "taxlist.txt"
               ),
-              radioButtons("select_type", "Choose selection:",
-                           c("Select all" = "sel_all",
-                             "Unselect all" = "exc_all",
-                             "Only include list" = "sel_list",
-                             "All except list" = "exc_list"))
+              radioButtons(
+                inputId = "select_type", 
+                label = "Choose selection:",
+                choices = c("Select all" = "sel_all",
+                  "Unselect all" = "exc_all",
+                  "Only include list" = "sel_list",
+                  "All except list" = "exc_list"),
+                selected = "sel_all")
               ),
     
     footer = tagList(modalButton("Cancel"),
@@ -334,7 +338,8 @@ output$taxaUI <- renderUI({
   if (input$subsetCriteria == "OTU") {
     choices <- taxa_names(subset_physeq())
   } else {
-    choices <- unique(as(tax_table(subset_physeq()), "data.frame")[,input$subsetCriteria])
+    choices <- unique(as.data.frame(as(tax_table(subset_physeq()), "matrix"))[,input$subsetCriteria])
+    choices <- choices[!is.na(choices)]
   }
   
   # Import
@@ -385,10 +390,9 @@ observeEvent(input$selectTaxa, {
   if (is.null(input$subsetCheck)) {
     showModal(dataInput(failed = TRUE))
   } else {
-    taxtab <- as.data.frame(tax_table(subset_physeq())) 
+    taxtab <- as.data.frame(as(tax_table(subset_physeq()), "matrix"))
     filt_pos <- which(rank_names(subset_physeq()) == input$subsetCriteria)
     to_subset <- rownames(taxtab)[taxtab[,filt_pos] %in% input$subsetCheck]
-    
     
     try(subset_physeq(prune_taxa(taxa = to_subset, subset_physeq())),
       silent = TRUE,

@@ -77,8 +77,9 @@ output$heatmap <- metaRender2(renderPlot, {
     })
   }
   
-  taxa_label <- NULL
-   if(!input$plot_rank == "OTU"){
+   if(input$plot_rank == "OTU"){
+     taxa_label <- NULL
+   }else {
      taxa_label <- input$plot_rank
    } 
   
@@ -89,7 +90,7 @@ output$heatmap <- metaRender2(renderPlot, {
       distance = ..(input$heatmapDist),
       method = ..(input$heatmapMethod),
       title = ..(checkNull(input$heatmapTitle)),
-      taxa.label = ..(checkNull(taxa_label)),
+      taxa.label = taxa_label,
       sample.order = ..(checkNull(input$heatmapX)),
       low = "yellow",
       high = "red",

@@ -13,6 +13,7 @@ source("panels/richnessB-ui.R", local = TRUE)
 source("panels/pca-ui.R", local = TRUE)
 source("panels/deseq-ui.R", local = TRUE)
 source("panels/tree-ui.R", local = TRUE)
+source("panels/functional-ui.R", local = TRUE)
 source("panels/Help-ui.R", local = TRUE)
 
 shinyUI(dashboardPage(
@@ -97,6 +98,7 @@ dashboardHeader(title = "metabrowser"),
       menuItem("PCA", tabName = "pca", icon = icon("bullseye")),
       menuItem("Differential abundance analysis", tabName = "deseq", icon = icon("balance-scale-left")),
       menuItem("Phylogenetic tree", tabName = "tree", icon = icon("tree")),
+      menuItem("Functional annotation", tabName = "func", icon = icon("tools")),
       menuItem("Help", tabName = "Help", icon = icon("info-circle"))
   )),
   dashboardBody(
@@ -121,6 +123,7 @@ dashboardHeader(title = "metabrowser"),
       tabItem(tabName = "pca", pca),
       tabItem(tabName = "deseq", deseq),
       tabItem(tabName = "tree", tree),
+      tabItem(tabName = "func", funcplot),
       tabItem(tabName = "Help", Help)
       )
     )

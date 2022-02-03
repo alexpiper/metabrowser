@@ -5,7 +5,7 @@ output$rawphyloseqPrint <- renderPrint({
       "Firstly, you should select a demo dataset or upload an abundance BIOM file.\nFor example, with Galaxy, a BIOM file can be obtained at the end of FROGS workflow with the 'FROGS BIOM to std BIOM' tool. \nMake sure that the phyloseq object in the RData file is called 'data'."
     )
   )
-  print(paste0("Original data: ", phyloseq::nsamples(raw_physeq()), " Samples, ", phyloseq::ntaxa(raw_physeq()), " Taxa."))
+  print(paste0("Original data: ", phyloseq::nsamples(raw_physeq()), " Samples, ", phyloseq::ntaxa(raw_physeq()), " OTUs."))
 })
 
 output$phyloseqPrint <- renderPrint({
@@ -15,7 +15,7 @@ output$phyloseqPrint <- renderPrint({
       ""
     )
   )
-  print(paste0("Filtered data: ", phyloseq::nsamples(physeq()), " Samples, ", phyloseq::ntaxa(physeq()), " Taxa."))
+  print(paste0("Filtered data: ", phyloseq::nsamples(physeq()), " Samples, ", phyloseq::ntaxa(physeq()), " OTUs."))
 })
 
 # Display plot ---------------------------------------------------------

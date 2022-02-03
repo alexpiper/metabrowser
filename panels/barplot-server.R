@@ -4,30 +4,8 @@ output$barplotShowRankUI <- renderUI({
     "barplotShowRank",
     label = "Taxonomic rank used for coloring : ",
     choices = c(rank_names(physeq()), "OTU"),
-    selected = "Phylum",
+    selected = "Genus",
     inline = TRUE
-  )
-})
-
-output$barplotFilterRankUI <- renderUI({
-  validate(need(physeq(), ""))
-  radioButtons(
-    "barplotFilterRank",
-    label = "Taxonomic rank used for filtering : ",
-    choices = c("NULL" = 0, rank_names(physeq())),
-    inline = TRUE
-  )
-})
-
-output$barplotTaxaUI <- renderUI({
-  validate(need(physeq(), ""),
-           need(input$barplotFilterRank, ""),
-           need(input$barplotFilterRank!=0, ""))
-  selectInput(
-    "barplotTaxa",
-    label = "Selected filter taxa : ",
-    choices = unique(as.vector(tax_table(physeq())[, input$barplotFilterRank])),
-    selected = TRUE
   )
 })
 
@@ -38,9 +16,7 @@ output$barplotNbTaxaUI <- renderUI({
     label = "Show the n most abundant OTU  : ",
     min = 1,
     max = get_max_taxa(ps = physeq(), filt_rank = input$barplotFilterRank, filt_name =  input$barplotTaxa),
-    #max = sum(tax_table(tax_glom(physeq(), rank_names(physeq())[1+as.integer(input$barplotFilterRank)]))[, as.integer(input$barplotFilterRank)]==input$barplotTaxa),
-    #max = 30,
-    value = 10
+    value = get_max_taxa(ps = physeq(), filt_rank = input$barplotFilterRank, filt_name =  input$barplotTaxa)
   )
 })
 
@@ -64,10 +40,8 @@ output$barplotUI <- renderUI({
     title = "Setting : ",
     width = NULL,
     status = "primary",
-    uiOutput("barplotFilterRankUI"),
-    uiOutput("barplotTaxaUI"),
-    uiOutput("barplotNbTaxaUI"),
     uiOutput("barplotShowRankUI"),
+    uiOutput("barplotNbTaxaUI"),
     uiOutput("barplotGridUI"),
     uiOutput("barplotXUI")
   )
@@ -90,8 +64,8 @@ output$barplot <- metaRender2(renderPlot, {
   metaExpr({
     p <- plot_composition(
       physeq = data,
-      taxaRank1 = ..(checkNull(input$barplotFilterRank)),
-      taxaSet1 = ..(input$barplotTaxa),
+      taxaRank1 = NULL,
+      taxaSet1 = NULL,
       taxaRank2 = ..(input$barplotShowRank),
       fill = ..(input$barplotShowRank),
       numberOfTaxa = ..(input$barplotNbTaxa),
