@@ -78,7 +78,6 @@ observeEvent(input$tree_output_code,
                displayCodeModal(
                  expandChain(
                    quote(library(phyloseq)),
-                   quote(library(phyloseq.extended)),
                    "# Replace `data` with you own data.",
                    output$tree()
                  ), clip = NULL

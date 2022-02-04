@@ -93,7 +93,6 @@ observeEvent(input$betaMds_output_code,
                displayCodeModal(
                  expandChain(
                    quote(library(phyloseq)),
-                   quote(library(phyloseq.extended)),
                    "# Replace `data` with you own data.",
                    output$betaMds()
                  ), clip = NULL
@@ -136,7 +135,6 @@ observeEvent(input$betaCluster_output_code,
                displayCodeModal(
                  expandChain(
                    quote(library(phyloseq)),
-                   quote(library(phyloseq.extended)),
                    "# Replace `data` with you own data.",
                    output$betaCluster()
                  ), clip = NULL
@@ -266,7 +264,6 @@ observeEvent(input$betaHeatmap_output_code,
                displayCodeModal(
                  expandChain(
                    quote(library(phyloseq)),
-                   quote(library(phyloseq.extended)),
                    "# Replace `data` with you own data.",
                    output$betaHeatmap()
                  ), clip = NULL
@@ -331,7 +328,6 @@ observeEvent(input$betaNetwork_output_code,
                displayCodeModal(
                  expandChain(
                    quote(library(phyloseq)),
-                   quote(library(phyloseq.extended)),
                    "# Replace `data` with you own data.",
                    output$betaNetwork()
                  ), clip = NULL

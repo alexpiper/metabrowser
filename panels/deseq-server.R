@@ -160,7 +160,6 @@ observeEvent(input$deseq_output_code,
                displayCodeModal(
                  expandChain(
                    quote(library(phyloseq)),
-                   quote(library(phyloseq.extended)),
                    quote(library(DESeq2)),
                    quote(library(ggplot2)),
                    quote(library(magrittr)),

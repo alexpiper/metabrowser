@@ -84,7 +84,6 @@ observeEvent(input$barplot_output_code,
                displayCodeModal(
                  expandChain(
                    quote(library(phyloseq)),
-                   quote(library(phyloseq.extended)),
                    "# Replace `data` with you own data.",
                    output$barplot()
                  ), clip = NULL
