@@ -34,6 +34,7 @@ shinyServer
   source("panels/pca-server.R", local = TRUE)
   source("panels/deseq-server.R", local = TRUE)
   source("panels/tree-server.R", local = TRUE)
+  source("panels/functional-server.R", local = TRUE)
 
   physeq <- reactiveVal()
   raw_physeq <- reactiveVal()
