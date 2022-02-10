@@ -158,7 +158,6 @@ observeEvent(input$pca_output_code,
                displayCodeModal(
                  expandChain(
                    quote(library(phyloseq)),
-                   quote(library(factoextra)),
                    "# Replace `data` with you own data.",
                    output$pca()
                  ), clip = NULL

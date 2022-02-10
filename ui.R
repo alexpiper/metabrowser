@@ -1,6 +1,7 @@
 cat(file=stderr(), paste0(R.version))
 suppressMessages(suppressWarnings(library(shinydashboard)))
 suppressMessages(suppressWarnings(library(shinymeta)))
+suppressMessages(suppressWarnings(library(shinyWidgets)))
 suppressMessages(suppressWarnings(library(shinycustomloader)))
 
 source("panels/Summary-ui.R", local = TRUE)
