@@ -125,7 +125,7 @@ observeEvent(input$okData, {
         "demo" =
           {
             message <- as.character(input$demo)
-            readRDS(paste0("demo/", input$demo,".RDS"))
+            readRDS(paste0("data/", input$demo,".RDS"))
           },
         "input" =
           {
