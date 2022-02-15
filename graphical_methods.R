@@ -131,12 +131,18 @@ ggrare <- function(physeq, step = 10, label = NULL, color = NULL, plot = TRUE, p
 ## Plot Functional annotation at taxaRank2 level within taxa taxaSet1 at taxaRank1 level
 ## Restricts plot to numberOfTaxa taxa
 plot_function <- function(physeq,
-                          annot_table,
+                          annot_table = NULL,
                           annot_rank = "Family",
                           x = "Sample",
                           y = "Abundance",
+                          fill = "annot",
                           facet_grid = NULL) {
     
+    print(annot_rank)
+    print(head(annot_table))
+    if(is.null(annot_table)){
+        stop("Requires an annotation table")
+    }
     colnames(annot_table) <- c(annot_rank, "annot")
     
     ggdata <- psmelt(physeq) %>%

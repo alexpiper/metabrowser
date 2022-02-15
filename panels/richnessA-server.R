@@ -144,13 +144,24 @@ model <- reactive({
   anova_data <- cbind(estimate_richness(physeq(), measures = input$anovaRichnessMeasure),
                       as(sample_data(physeq()), "data.frame"))
   formula <-  paste0(input$anovaRichnessMeasure, " ~ ", input$anovaCovariate)
-  do.call("lm", list(formula = as.formula(formula), data = as.name("anova_data")))
+  model_fit <- do.call("lm", list(formula = as.formula(formula), data = as.name("anova_data")))
+  return(list(anova_data, model_fit))
 })
 
 output$alphaAnova <- renderPrint({
-  validate(need(model(), ""))
-  print(model())
-  anova(model())
+  validate(need(model()[[2]], ""))
+  cat("# Model fit:\n")
+  report_model(model()[[2]])
+  print(model()[[2]])
+  print(report_performance(model()[[2]]))
+  cat("\n\n# ANOVA:\n\n")
+  print(anova(model()[[2]]))
+  print(report::report(anova(model()[[2]])))
+  cat("\n\n")
+  report::report_sample(
+    model()[[1]], 
+    group_by = as.character(model()[[2]]$terms[[3]]),
+    select=as.character(model()[[2]]$terms[[2]]))
 })
 
 output$anovaHSD <- DT::renderDT({
@@ -164,7 +175,7 @@ output$anovaHSD <- DT::renderDT({
   if (! (is.factor(var) || is.character(var))) {
     tibble::tibble(.rows = 0)
   } else {
-    TukeyHSD(aov(model()))[[1]] %>% as_tibble(rownames = "Pair") %>%
+    TukeyHSD(aov(model()[[2]]))[[1]] %>% as_tibble(rownames = "Pair") %>%
       beautifulTable() %>%
       DT::formatSignif(columns = c("diff", "lwr", "upr", "p adj"), digits = 4)
   }

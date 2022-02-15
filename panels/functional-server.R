@@ -20,10 +20,10 @@ output$funcYui <- renderUI({
     label = "What to put on Y axis : ",
     inline = TRUE,
     choices = list(
-      "Relative abundance" = "ab",
-      "Unique OTUs" = "otu"
+      "Relative abundance" = "Abundance",
+      "Unique OTUs" = "OTU"
     ),
-    selected = "ab"
+    selected = "Abundance"
   )
 })
 
@@ -33,7 +33,8 @@ output$funcAnnotRankUI <- renderUI({
   radioButtons(
     "funcFilterRank",
     label = "Taxonomic rank used for annotation : ",
-    choices = c("NULL" = 0, rank_names(physeq())),
+    choices = c(rank_names(physeq())),
+    selected = "Family",
     inline = TRUE
   )
 })
@@ -66,18 +67,17 @@ output$funcUI <- renderUI({
   )
 })
 
+# Import
+observeEvent(input$fileAnnot, {
+  annot(read.csv(input$fileAnnot$datapath))
+})   
 
 # Display plot ---------------------------------------------------------
 output$funcplot <- metaRender2(renderPlot, {
   validate(need(physeq(), "Requires an abundance dataset"))
-  data <- physeq()
 
-  # Import
-  annot <- NULL
-  observeEvent(input$fileAnnot, {
-    annot <<- read_csv(input$fileAnnot$datapath)
-  })
-  
+  data <- physeq()
+  annot_table <- annot()
   # Set up facetting
   funcGrid <- if (!is.null(checkNull(input$funcGrid))) {
     metaExpr({
@@ -85,16 +85,22 @@ output$funcplot <- metaRender2(renderPlot, {
     })
   }
   # Create plot
-  metaExpr({
-    p <- plot_function(
-      physeq = data,
-      annot_table = ..(checkNull(annot)),
-      annot_rank = ..(input$funcAnnotRankUI),
-      x = ..(input$funcX),
-      y = ..(input$funcY)
-    )
-    p + ..(funcGrid)
-  })
+  if(inherits(annot_table, "data.frame")){
+    metaExpr({
+      p <- plot_function(
+        physeq = data,
+        #annot_table = ..(checkNull(annot)),
+        annot_table = annot_table,
+        annot_rank = ..(input$funcFilterRank),
+        x = ..(input$funcX),
+        y = "Abundance" # Add option for OTU
+        #y = ..(input$funcY)
+      )
+      p + ..(funcGrid)
+    })
+  } else {
+    message("Upload an annotation table")
+  }
 })
 
 

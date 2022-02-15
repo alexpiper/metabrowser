@@ -14,6 +14,7 @@ suppressMessages(suppressWarnings(library(data.table)))
 suppressMessages(suppressWarnings(library(magrittr)))
 suppressMessages(suppressWarnings(library(factoextra)))
 suppressMessages(suppressWarnings(library(vegan)))
+suppressMessages(suppressWarnings(library(report)))
 
 shinyServer
 (function(input, output, session)
@@ -40,6 +41,7 @@ shinyServer
   subset_physeq <- reactiveVal()
   filter_physeq <- reactiveVal()
   transform_physeq <- reactiveVal()
+  annot <- reactiveVal()
   
   showModal(dataInput())
 

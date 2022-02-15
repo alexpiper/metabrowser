@@ -418,22 +418,22 @@ filterSample <- function() {
     h4('OTU filtering'),
     fluidRow(column(width=12,
                     div(class="col-md-6",
-                        numericInput("filter_taxa_sums_threshold", "Taxa Min reads per sample.",
+                        numericInput("filter_taxa_sums_threshold", "OTU Min reads per sample.",
                                         value=0, min=0, step=1))
     )),
     fluidRow(column(width=12,
                     div(class="col-md-6",
-                        numericInputIcon("filter_taxa_ra_threshold", "Taxa Min relative abundance per sample.",
+                        numericInputIcon("filter_taxa_ra_threshold", "OTU Min relative abundance per sample.",
                                      value=0, min=0, max=100, step=NA, icon = list(NULL, icon("percent"))))
     )),
     fluidRow(column(width=12,
                     div(class="col-md-6",
-                        numericInputIcon("filter_taxa_mean_threshold", "Taxa mean relative abundance over whole dataset.",
+                        numericInputIcon("filter_taxa_mean_threshold", "OTU Min mean relative abundance across whole dataset.",
                                      value=0, min=0, max=100, step=NA, icon = list(NULL, icon("percent"))))
     )),
     fluidRow(column(width=12,
                     div(class="col-md-6",
-                        numericInputIcon("filter_taxa_total_threshold", "Taxa relative abundance above fraction over whole dataset",
+                        numericInputIcon("filter_taxa_total_threshold", "OTU relative abundance above fraction across whole dataset",
                                      value=0, min=0, max=100, step=NA, icon = list(NULL, icon("percent"))))
     )),
     h4('Include only taxa with more than A reads (on average) in at least k% samples'),
@@ -448,7 +448,7 @@ filterSample <- function() {
     h4('Keep top N taxa'),
     fluidRow(column(width=12,
                     div(class="col-md-6",
-                        numericInput("filter_top_taxa", "Number of most abundant taxa to keep",
+                        numericInput("filter_top_taxa", "Number of most abundant OTUs to keep",
                                      value=Inf, min=0, step=1))
     )),
     h4('Sample filtering'),
@@ -459,7 +459,7 @@ filterSample <- function() {
     )),
     fluidRow(column(width=12,
                     div(class="col-md-6",
-                        numericInput("filter_sample_taxa_threshold", "Sample Min taxa",
+                        numericInput("filter_sample_taxa_threshold", "Sample Min OTU",
                                      value=0, min=0, step=1))
     )),
     footer = tagList(modalButton("Cancel"),
@@ -476,100 +476,9 @@ observeEvent(input$filterData, {
   } else {
     shinyWidgets::updateSwitchInput(session = session, inputId = "useFiltf", value = FALSE)
     
-    # Define filters
-    filter_all <- function(input, physeq){
-      
-      # Get initial phyloseq object
-      ps0 <- physeq
-      
-      # Per sample counts
-      if( input$filter_taxa_sums_threshold > 0 ){
-        ps0 <- phyloseq_filter_sample_wise_abund_trim(
-          ps0, 
-          minabund = input$filter_taxa_sums_threshold,
-          relabund = FALSE,
-          rm_zero_OTUs = TRUE)
-        
-      }
-      
-      # Per sample RA
-      if( input$filter_taxa_ra_threshold > 0 ){
-        ps0 <- phyloseq_filter_sample_wise_abund_trim(
-          ps0, 
-          minabund = 1/input$filter_taxa_ra_threshold,
-          relabund = TRUE,
-          rm_zero_OTUs = TRUE)
-        
-      }
-      
-      # Total dataset mean relative abundance.
-      if( input$filter_taxa_mean_threshold > 0 ){
-        ps0 <- phyloseq_filter_taxa_rel_abund(
-          ps0, 
-          frac = 1/input$filter_taxa_mean_threshold)
-      }
-      
-      #Remove taxa with abundance less then a certain fraction of total abundance.
-      if( input$filter_taxa_total_threshold > 0 ){
-        ps0 <- phyloseq_filter_taxa_tot_fraction(
-          ps0, 
-          frac = 1/input$filter_taxa_total_threshold)
-      }
-      
-      # K over A filtering 
-      if( input$filter_kOverA_sample_threshold > 1){
-        ps0 <- phyloseq_filter_prevalence(
-          ps0, 
-          prev.trh = 1/input$filter_kOverA_sample_threshold,
-          abund.trh = 1/input$filter_kOverA_count_threshold,
-          threshold_condition = "AND",
-          abund.type = "mean")
-      }
-      
-      # Extract most abundant taxa
-      if( input$filter_top_taxa > 0){
-        ps0 <- phyloseq_filter_top_taxa(
-          ps0, 
-          n = input$filter_top_taxa
-        )
-      }
-      
-      # then filter sample sums
-      if( input$filter_sample_sums_threshold > 0 ){
-        # Sample sums filtering
-        ps0 <- prune_samples({sample_sums(ps0) > input$filter_sample_sums_threshold}, ps0)
-      }
-      phyloseq_richness_filter <- function(physeq, mintaxa = 10){
-        
-        ## Estimate number of OTUs per sample
-        sp <- phyloseq::estimate_richness(physeq, measures = "Observed")
-        samples_to_keep <- rownames(sp)[ which(sp$Observed >= mintaxa) ]
-        
-        if(length(samples_to_keep) == 0){
-          stop("All samples will be removed.\n")
-        }
-        
-        if(length(samples_to_keep) == phyloseq::nsamples(physeq)){
-          cat("All samples will be preserved\n")
-          res <- physeq
-        }
-        
-        if(length(samples_to_keep) < phyloseq::nsamples(physeq)){
-          res <- phyloseq::prune_samples(samples = samples_to_keep, x = physeq)
-        }
-        
-        return(res)
-      }
-      # Sample richness filtering
-      if( input$filter_sample_taxa_threshold < Inf ){
-        ps0 <- phyloseq_richness_filter(ps0, mintaxa = input$filter_sample_taxa_threshold)
-      }
-      return(ps0)
-    }
-      
     #apply_filters 
     try(
-      filter_physeq(filter_all(input, select_physeq())),
+      filter_physeq(filter_all(input, select_physeq())$ps),
       silent = TRUE,
       outFile = showModal(dataInput(failed = TRUE)))
     

@@ -1,0 +1,595 @@
+family,in_ref_db,in_afd,type,Common name
+Acanthosomatidae,TRUE,TRUE,General,Shield bugs
+Achilidae,TRUE,TRUE,General,Planthoppers
+Acrididae,TRUE,TRUE,Include pests,Grasshoppers
+Acroceridae,TRUE,TRUE,General,Spider flies
+Adelgidae,TRUE,TRUE,Include pests,Aphid-like hemipterans
+Adelidae,TRUE,TRUE,General,Fairy longhorn moths
+Aderidae,TRUE,TRUE,Include pests,Ant-like leaf beetles
+Aeolothripidae,TRUE,TRUE,Include pests,Trhips
+Aeshnidae,TRUE,TRUE,Predators,Hawkers dragonflies
+Agaonidae,TRUE,TRUE,Pollinators,Fig wasps
+Agathiphagidae,TRUE,TRUE,General,Kauri moths
+Agromyzidae,TRUE,TRUE,Include pests,Leaf-miner flies
+Aleyrodidae,TRUE,TRUE,Include pests,Whiteflies
+Alucitidae,TRUE,TRUE,General,Many-plumed moths
+Alydidae,TRUE,TRUE,Include pests,Broad-headed bugs
+Ameletopsidae,TRUE,TRUE,Predators nymphs,Mayflies
+Amorphoscelidae,TRUE,TRUE,Predators,Mantises
+Amphientomidae,TRUE,TRUE,General,Pscodeas
+Amphipsocidae,TRUE,TRUE,General,Barklices
+Ampulicidae,TRUE,TRUE,Parasitoids,Cockroach wasp
+Anisolabididae,TRUE,TRUE,Pest / Predator,Earwigs
+Anisopodidae,TRUE,TRUE,General,Window-gnat
+Anobiidae,TRUE,TRUE,Include pests,Wood boring beetles
+Anomosetidae,TRUE,TRUE,General,Primitive ghost moths
+Anostostomatidae,TRUE,TRUE,General,Crickets
+Anthelidae,TRUE,TRUE,Include pests,Lappet moths
+Anthicidae,TRUE,TRUE,General,Ant-like flower beetles
+Anthocoridae,TRUE,TRUE,Predators,Flower bugs
+Anthomyiidae,TRUE,TRUE,General,Flies
+Anthomyzidae,TRUE,TRUE,General,Flies
+Anthribidae,TRUE,TRUE,Include pests,Weevils
+Antipodoeciidae,TRUE,TRUE,General,
+Aphalaridae,TRUE,TRUE,Include pests,Psyllids
+Aphelinidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Aphididae,TRUE,TRUE,Include pests,Aphids
+Aphrophoridae,TRUE,TRUE,General,Spittlebugs
+Apidae,TRUE,TRUE,Pollinators,Bees
+Apioceridae,TRUE,TRUE,Pollinators,Flower-loving flies
+Aradidae,TRUE,TRUE,General,Flat bugs
+Archipsocidae,TRUE,TRUE,General,Psocoptera
+Argidae,TRUE,TRUE,General,Sawflies
+Argyresthiidae,TRUE,TRUE,General,Moths
+Artheneidae,TRUE,TRUE,General,Hemipteran bugs
+Ascalaphidae,TRUE,TRUE,Predators,Owflies
+Asilidae,TRUE,TRUE,Predators,Robber flies
+Asteiidae,TRUE,TRUE,General,Flies
+Athericidae,TRUE,TRUE,Predators,Ibis flies
+Atriplectididae,TRUE,TRUE,General,Caddisflies
+Attelabidae,TRUE,TRUE,Contain pests,Leaf rolling Weevils
+Aulacidae,TRUE,TRUE,Parasitoids,Wasps
+Australembiidae,TRUE,TRUE,General,Webspinners
+Austroleptidae,TRUE,TRUE,General,Snipe flies
+Austroperlidae,TRUE,TRUE,Water quality indicator,Stoneflies
+Austropetaliidae,TRUE,TRUE,Predators,Dragonflies
+Baetidae,TRUE,TRUE,Water quality indicator,Mayflies
+Batrachedridae,TRUE,TRUE,General,Moths
+Belidae,TRUE,TRUE,General,Weevils
+Belostomatidae,TRUE,TRUE,General,Giant water bugs
+Berothidae,TRUE,TRUE,Predators,Neuropteran
+Berytidae,TRUE,TRUE,General,Stilt bugs
+Bethylidae,TRUE,TRUE,Parasitoids,Aculeate wasps
+Bibionidae,TRUE,TRUE,General,Flies
+Biphyllidae,TRUE,TRUE,General,False skin beetles
+Bittacidae,TRUE,TRUE,Predators,Scorpion flies
+Blaberidae,TRUE,TRUE,General,Giant cockroaches
+Blastobasidae,TRUE,TRUE,Include pests,Moths
+Blattidae,TRUE,TRUE,Include pests,Cockroaches
+Blephariceridae,TRUE,TRUE,General,Net-winged midges
+Blissidae,TRUE,TRUE,Include pests,Bugs
+Bolboceratidae,TRUE,TRUE,General,Dor beetles
+Bombycidae,TRUE,TRUE,General,Silk moths
+Bombyliidae,TRUE,TRUE,Pollinators,Bee flies
+Boridae,TRUE,TRUE,Include pests,Confier bark beetles
+Bostrichidae,TRUE,TRUE,Include pests,Powderpost beetles
+Bothrideridae,TRUE,TRUE,Includes insect ectoparasitoids,Dry bark beetles
+Brachodidae,TRUE,TRUE,General,Day-flying moths
+Braconidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Brentidae,TRUE,TRUE,Include pests,Straight-snouted weevils
+Bucculatricidae,TRUE,TRUE,Include pests,Moths
+Buprestidae,TRUE,TRUE,Include pests,Jewel beetles
+Byrrhidae,TRUE,TRUE,General,Pill beetles
+Caeciliusidae,TRUE,TRUE,General,Psocoptera
+Caenidae,TRUE,TRUE,Water quality indicator,Mayflies
+Calamoceratidae,TRUE,TRUE,Water quality indicator,Caddisflies
+Caliscelidae,TRUE,TRUE,General,Planthoppers
+Calliphoridae,TRUE,TRUE,Pollinators,Blow flies
+Callirhipidae,TRUE,TRUE,General,Cedar beetles
+Calocidae,TRUE,TRUE,Water quality indicator,Forest stream caddis
+Calophyidae,TRUE,TRUE,Include pests,Psyllids
+Calopsocidae,TRUE,TRUE,General,Psocoptera
+Calopterygidae,TRUE,TRUE,Predators,Broad-winged damselflies
+Canacidae,TRUE,TRUE,General,Beach flies
+Cantharidae,TRUE,TRUE,General,Soldier beetles
+Carabidae,TRUE,TRUE,Predators,Ground beetles
+Carposinidae,TRUE,TRUE,Include pests,Fruitworm moths
+Carsidaridae,TRUE,TRUE,Include pests,Psyllids
+Carthaeidae,TRUE,TRUE,General,Moths
+Castniidae,TRUE,TRUE,General,Moths
+Cecidomyiidae,TRUE,TRUE,Include pests,Gall midges
+Cerambycidae,TRUE,TRUE,Include pests,Longhorn beetles
+Ceraphronidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Ceratocombidae,TRUE,TRUE,General,Litter bugs
+Ceratophyllidae,TRUE,TRUE,Parasites,Fleas
+Ceratopogonidae,TRUE,TRUE,Includes vectors of pathogens,Biting midges
+Cercopidae,TRUE,TRUE,General,Xylem-feeding bugs
+Cerylonidae,TRUE,TRUE,Include pests,Minute bark beetles
+Chalcididae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Chamaemyiidae,TRUE,TRUE,Predators,Acalyptrate flies
+Chaoboridae,TRUE,TRUE,General,Phantom midges
+Chathamiidae,TRUE,TRUE,General,Marine caddisflies
+Chelisochidae,TRUE,TRUE,Predators,Black earwigs
+Chironomidae,TRUE,TRUE,General,Non-biting midges
+Chlorocyphidae,TRUE,TRUE,Predators,Damselflies
+Chloropidae,TRUE,TRUE,Disease transmitters in animals,Grass flies
+Choreutidae,TRUE,TRUE,Include pests,Metalmarks moths
+Choristidae,TRUE,TRUE,Predators,Scorpion flies
+Chrysididae,TRUE,TRUE,Parasitoids,Cuckoo wasps
+Chrysomelidae,TRUE,TRUE,Include pests,Leaf beetles
+Chrysopidae,TRUE,TRUE,Predators,Green lacewings
+Chyromyidae,TRUE,TRUE,General,Acalyptrate flies
+Cicadellidae,TRUE,TRUE,Include pests,Leafhoppers
+Cicadidae,TRUE,TRUE,General,Cicadas
+Ciidae,TRUE,TRUE,General,Tree-fungus beetles
+Cimicidae,TRUE,TRUE,Parasites,Bed bugs
+Cixiidae,TRUE,TRUE,General,Planthoppers
+Clambidae,TRUE,TRUE,General,Minute beetles
+Clastopteridae,TRUE,TRUE,General,Spittlebugs
+Cleridae,TRUE,TRUE,General,Checkered beetles
+Clusiidae,TRUE,TRUE,General,Druid flies
+Coccidae,TRUE,TRUE,Includes pests,Scale insects
+Coccinellidae,TRUE,TRUE,Predators,Ladybird beetles
+Coelopidae,TRUE,TRUE,General,Kelp flies
+Coenagrionidae,TRUE,TRUE,Predators,Narrow-winged damselflies
+Coleophoridae,TRUE,TRUE,General,Casebearing moths
+Colletidae,TRUE,TRUE,Pollinators,Plasterer bees
+Colobathristidae,TRUE,TRUE,General,True bugs
+Coloburiscidae,TRUE,TRUE,Water quality indicator,Ephemeroptera
+Coniopterygidae,TRUE,TRUE,Predators,Neuropteran
+Conoesucidae,TRUE,TRUE,Water quality indicator,Caddisflies
+Conopidae,TRUE,TRUE,Parasitoids,Thick-headed flies
+Copromorphidae,TRUE,TRUE,Include pests,Tropical fruitworm moths
+Corduliidae,TRUE,TRUE,Predators,Emerald dragonflies
+Coreidae,TRUE,TRUE,General,Coreid bugs
+Corixidae,TRUE,TRUE,Predators,Water boatmen
+Corydalidae,TRUE,TRUE,Predators,Dobsonflies
+Corydiidae,TRUE,TRUE,General,Sand cockroaches
+Corylophidae,TRUE,TRUE,General,Minute hooded beetls
+Cosmopterigidae,TRUE,TRUE,Include pests,Small moths
+Cossidae,TRUE,TRUE,Include pests,Carpenter millers
+Crabronidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Crambidae,TRUE,TRUE,General,Grass moths
+Cryptophagidae,TRUE,TRUE,General,Silken fungus beetles
+Cucujidae,TRUE,TRUE,General,Flat bark beetles
+Culicidae,TRUE,TRUE,Disease transmitters in animals and humans,Mosquitos
+Cupedidae,TRUE,TRUE,General,Reticulated beetles
+Curculionidae,TRUE,TRUE,Include pests,Weevils
+Curtonotidae,TRUE,TRUE,General,Quasimodo flies
+Cyclotornidae,TRUE,TRUE,Ectoparasites of insects,Moths
+Cydnidae,TRUE,TRUE,Include pests,Burrowing bugs
+Cylindrotomidae,TRUE,TRUE,General,Craneflies
+Cymidae,TRUE,TRUE,General,True bugs
+Cynipidae,TRUE,TRUE,Include pests,Gall wasps
+Cypselosomatidae,TRUE,TRUE,General,Flies
+Dactylopiidae,TRUE,TRUE,Include pests,Scale insects
+Dascillidae,TRUE,TRUE,General,Soft-bodied beetles
+Delphacidae,TRUE,TRUE,General,Planthoppers
+Derbidae,TRUE,TRUE,General,Planthoppers
+Dermestidae,TRUE,TRUE,Include pests,Skin beetles
+Derodontidae,TRUE,TRUE,General,Tooth-necked fungus beetles
+Diadocidiidae,TRUE,TRUE,General,Flies
+Diapheromeridae,TRUE,TRUE,General,Stick insects
+Diapriidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Diaspididae,TRUE,TRUE,Include pests,Scale insects
+Dictyopharidae,TRUE,TRUE,General,Planthoppers
+Dinidoridae,TRUE,TRUE,Include pests,True bugs
+Dipseudopsidae,TRUE,TRUE,General,Caddisflies
+Dipsocoridae,TRUE,TRUE,General,Jumping ground bugs
+Ditomyiidae,TRUE,TRUE,General,Flies
+Dixidae,TRUE,TRUE,General,Nematoceran flies
+Dolichopodidae,TRUE,TRUE,Predators,Long-legged flies
+Douglasiidae,TRUE,TRUE,Include pests,Douglas moths
+Drepanidae,TRUE,TRUE,General,Butterflies
+Drosophilidae,TRUE,TRUE,Include pests,Fruit flies
+Dryadaulidae,TRUE,TRUE,General,moths
+Dryinidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Dudgeoneidae,TRUE,TRUE,General,Moths
+Dytiscidae,TRUE,TRUE,Predators,Predaceous diving beetles
+Ecnomidae,TRUE,TRUE,Predators,Caddisflies
+Ectobiidae,TRUE,TRUE,Include pests,Cockroaches
+Ectopsocidae,TRUE,TRUE,General,Bark lice
+Elachistidae,TRUE,TRUE,General,Grass-miner moths
+Elateridae,TRUE,TRUE,Include pests,Click beetles
+Elenchidae,TRUE,TRUE,Parasitoids,Sterepsiptera
+Elipsocidae,TRUE,TRUE,Include pests,Damp barklice
+Elmidae,TRUE,TRUE,Water quality indicator,Riffle beetles
+Empididae,TRUE,TRUE,Predators,Flies
+Encyrtidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Endomychidae,TRUE,TRUE,General,Handsome fungus beetles
+Enicocephalidae,TRUE,TRUE,Predators,Unique-headed bugs
+Epermeniidae,TRUE,TRUE,General,Fringe-tufted moths
+Ephydridae,TRUE,TRUE,General,Shore flies
+Epipsocidae,TRUE,TRUE,General,Psocoptera
+Epipyropidae,TRUE,TRUE,Ectoparasites of insects,Moths
+Erebidae,TRUE,TRUE,Include pests,Moths
+Eriococcidae,TRUE,TRUE,Include pests,Scale insects
+Eriocottidae,TRUE,TRUE,General,Old World spiny-winged moths
+Erotylidae,TRUE,TRUE,General,Pleasing fungus beetles
+Eucharitidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Eucinetidae,TRUE,TRUE,General,Plate-thigh beetles
+Eucnemidae,TRUE,TRUE,Includes pests,False click beetles
+Eulophidae,TRUE,TRUE,Include pests of plants and parasitoids,Parasitoid wasps
+Eupelmidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Eupterotidae,TRUE,TRUE,Includes pests,moths
+Eurytomidae,TRUE,TRUE,Include pests of plants and parasitoids,Parasitoid wasps
+Eustheniidae,TRUE,TRUE,Predators,Stoneflies
+Euteliidae,TRUE,TRUE,General,Moths
+Evaniidae,TRUE,TRUE,Parasitoids,Ensign wasps
+Fanniidae,TRUE,TRUE,General,Flies
+Fergusoninidae,TRUE,TRUE,General,Gall-forming flies
+Figitidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Flatidae,TRUE,TRUE,Includes pests,Planthoppers
+Forficulidae,TRUE,TRUE,Predators,Earwigs
+Formicidae,TRUE,TRUE,Includes pests,Ants
+Fulgoridae,TRUE,TRUE,Includes pests,Planthoppers
+Galacticidae,TRUE,TRUE,Includes pests,Moths
+Gasteruptiidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Gelastocoridae,TRUE,TRUE,General,Toad bugs
+Gelechiidae,TRUE,TRUE,Includes pests,Twirler moths
+Geometridae,TRUE,TRUE,Includes pests,Moths
+Geotrupidae,TRUE,TRUE,General,Dung beetles
+Gerridae,TRUE,TRUE,General,Water striders
+Glossosomatidae,TRUE,TRUE,Water quality indicator,Trichoptera
+Glyphipterigidae,TRUE,TRUE,Includes pests,Sedge moths
+Gomphidae,TRUE,TRUE,Predators,Club-tailed dragonflies
+Gracillariidae,TRUE,TRUE,Includes pests,Leaf miners
+Gripopterygidae,TRUE,TRUE,Water quality indicator,Stoneflies
+Gryllacrididae,TRUE,TRUE,Predators,Non-jumping cricket
+Gryllidae,TRUE,TRUE,General,Crickets
+Gryllotalpidae,TRUE,TRUE,General,Mole crickets
+Gyrinidae,TRUE,TRUE,General,Whirligig beetles
+Haematopinidae,TRUE,TRUE,Includes pests,Ungulate lice
+Halictidae,TRUE,TRUE,Pollinators,Sweet bees
+Halictophagidae,TRUE,TRUE,Endoparasites of insects,Strepsiptera
+Halimococcidae,TRUE,TRUE,Includes pests,Scale insects
+Haliplidae,TRUE,TRUE,General,Water beetles
+Hebridae,TRUE,TRUE,Predators,Velvet water bugs
+Heleomyzidae,TRUE,TRUE,General,Flies
+Helicophidae,TRUE,TRUE,Water quality indicator,Trichoptera
+Helicopsychidae,TRUE,TRUE,Water quality indicator,Trichoptera
+Heliodinidae,TRUE,TRUE,Includes pests,Sun moths
+Heliozelidae,TRUE,TRUE,Includes pests,Shield-barer moths
+Hemerobiidae,TRUE,TRUE,Predators,Brown Lacewings
+Hepialidae,TRUE,TRUE,Includes pests,Ghost moths
+Hesperiidae,TRUE,TRUE,Pollinators,Skipper butterflies
+Heteroceridae,TRUE,TRUE,General,Variegated mud-loving beetles
+Heterogastridae,TRUE,TRUE,General,Lygaeoid bugs
+Heteronemiidae,TRUE,TRUE,General,Stick insects
+Hippoboscidae,TRUE,TRUE,Includes pests,Biting flies
+Histeridae,TRUE,TRUE,Biocontrol agents,Clown beetles
+Hobartiidae,TRUE,TRUE,General,Beetles
+Homotomidae,TRUE,TRUE,General,Psyllids
+Hoplopleuridae,TRUE,TRUE,General,Lice
+Hyblaeidae,TRUE,TRUE,Includes pests,Teak moths
+Hybosoridae,TRUE,TRUE,General,Scavenger scarab beetles
+Hybotidae,TRUE,TRUE,General,Dance flies
+Hydraenidae,TRUE,TRUE,General,Minute moss beetles
+Hydrobiosidae,TRUE,TRUE,Predators,Caddisflies
+Hydrometridae,TRUE,TRUE,Predators,Marsh treaders
+Hydrophilidae,TRUE,TRUE,Predators,Water scavenger beetles
+Hydropsychidae,TRUE,TRUE,Water quality indicator,Net-spinning caddisflies
+Hydroptilidae,TRUE,TRUE,Predators,Caddisflies
+Hygrobiidae,TRUE,TRUE,Predators,Water beetles
+Hymenopodidae,TRUE,TRUE,Predators,Mantises
+Hystrichopsyllidae,TRUE,TRUE,Includes pests,Fleas
+Ibaliidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Ichneumonidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Immidae,TRUE,TRUE,Pollinators,Moths
+Incurvariidae,TRUE,TRUE,Includes pests,Leaf miners moths
+Ironomyiidae,TRUE,TRUE,General,Ironic flies
+Ischnopsyllidae,TRUE,TRUE,Includes pests,Fleas
+Isostictidae,TRUE,TRUE,Predators,Damselflies
+Issidae,TRUE,TRUE,General,Planthoppers
+Ithonidae,TRUE,TRUE,Predators,Moth lacewings
+Kalotermitidae,TRUE,TRUE,Includes pests,Termites
+Kateretidae,TRUE,TRUE,General,Flower beetles
+Keroplatidae,TRUE,TRUE,General,Fungus gnats
+Kerriidae,TRUE,TRUE,Commercially farmed,Lac scale insects
+Kokiriidae,TRUE,TRUE,Predators,Trichoptera
+Labiduridae,TRUE,TRUE,General,Striped earwigs
+Lachesillidae,TRUE,TRUE,General,Fateful barklice
+Lacturidae,TRUE,TRUE,Pollinators,Tropical burnet moths
+Laemobothriidae,TRUE,TRUE,Includes pests,Chewing lice
+Laemophloeidae,TRUE,TRUE,General,Lined falt bark beetles
+Lampyridae,TRUE,TRUE,General,Fireflies
+Largidae,TRUE,TRUE,Includes pests,Bordered plant bugs
+Lasiocampidae,TRUE,TRUE,General,Lappet moths
+Latridiidae,TRUE,TRUE,General,Fungus beetles
+Lauxaniidae,TRUE,TRUE,General,Acalyptrate flies
+Lecithoceridae,TRUE,TRUE,General,Long-horned moths
+Leiodidae,TRUE,TRUE,General,Round fungus beetles
+Lepidopsocidae,TRUE,TRUE,General,Bark lice
+Lepismatidae,TRUE,TRUE,General,Silverfish
+Leptoceridae,TRUE,TRUE,Water quality indicator,Case Trichoptera
+Leptophlebiidae,TRUE,TRUE,Water quality indicator,Prong-Gilled mayflies
+Leptopsyllidae,TRUE,TRUE,Includes pests,Fleas
+Lestidae,TRUE,TRUE,Predators,Spread-winged damselflies
+Leucospidae,TRUE,TRUE,Ectoparasites of insects,Wasps
+Libellulidae,TRUE,TRUE,Predators,Skimmers dragonflies
+Limacodidae,TRUE,TRUE,General,Slug moths
+Limnephilidae,TRUE,TRUE,Water quality indicator,Caddisflies
+Limnichidae,TRUE,TRUE,Water quality indicator,Minute marsh-loving beetles
+Limoniidae,TRUE,TRUE,Includes predators,Craneflies
+Linognathidae,TRUE,TRUE,Parasites of mammals,Lice
+Liopteridae,TRUE,TRUE,Parasitoids,Wood-boring parasitoid wasps
+Liposcelididae,TRUE,TRUE,General,Booklice
+Liturgusidae,TRUE,TRUE,Predators,Praying mantises
+Liviidae,TRUE,TRUE,Includes pests,Psyllids
+Lonchaeidae,TRUE,TRUE,Includes pests,Lance flies
+Lonchopteridae,TRUE,TRUE,General,Spear-winged flies
+Lophocoronidae,TRUE,TRUE,General,moths
+Lophopidae,TRUE,TRUE,General,Planthoppers
+Lucanidae,TRUE,TRUE,General,Stag beetles
+Lycaenidae,TRUE,TRUE,General,Gossamer-winged butterflies
+Lycidae,TRUE,TRUE,General,Net-winged beetles
+Lygaeidae,TRUE,TRUE,Includes pests,Seed bugs 
+Lymexylidae,TRUE,TRUE,Includes pests,Ship-timber beetles
+Lyonetiidae,TRUE,TRUE,Includes pests,Leafminers moths
+Macromiidae,TRUE,TRUE,Predators,Cruisers dragonflies
+Mantidae,TRUE,TRUE,Predators,Mantises
+Mantispidae,TRUE,TRUE,Predators,Mantid lacewings
+Mastotermitidae,TRUE,TRUE,Includes pests,Termites
+Meenoplidae,TRUE,TRUE,General,Planthoppers
+Meessiidae,TRUE,TRUE,General,Moths
+Megachilidae,TRUE,TRUE,Pollinators,Leafcutting bees
+Megalyridae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Megapodagrionidae,TRUE,TRUE,Predators,Flatwings damselflies
+Megaspilidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Megastigmidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Meinertellidae,TRUE,TRUE,General,Rock bristletails
+Melandryidae,TRUE,TRUE,General,Falase darkling beetles
+Melanthripidae,TRUE,TRUE,Includes pests,Thrips
+Meloidae,TRUE,TRUE,General,Blister beetles
+Melyridae,TRUE,TRUE,Pollinators,Soft-wing flower beetles
+Membracidae,TRUE,TRUE,Includes pests,Treehoppers
+Mengenillidae,TRUE,TRUE,General,Strepsiptera
+Menoponidae,TRUE,TRUE,Parasites of birds,Lice
+Meropeidae,TRUE,TRUE,General,Scorpionflies
+Merothripidae,TRUE,TRUE,Includes pests,Thrips
+Mesopsocidae,TRUE,TRUE,General,Psocoptera
+Mesoveliidae,TRUE,TRUE,Predators,Water treaders
+Micronectidae,TRUE,TRUE,Water quality indicator,Water bugs
+Micropezidae,TRUE,TRUE,General,Stilt-legged flies
+Micropterigidae,TRUE,TRUE,General,Archaic moths
+Milichiidae,TRUE,TRUE,kleptoparasites,Flies
+Miridae,TRUE,TRUE,Includes prests,Mirid bugs
+Mogoplistidae,TRUE,TRUE,General,Scaly crickets
+Momphidae,TRUE,TRUE,Includes pests,Mompha moths
+Monomachidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Monotomidae,TRUE,TRUE,Predators,Beetles
+Morabidae,TRUE,TRUE,General,Grasshoppers
+Mordellidae,TRUE,TRUE,General,Tumbling flower beetls
+Muscidae,TRUE,TRUE,General,Flies
+Mutillidae,TRUE,TRUE,Pollinators,Airy ant wasps
+Mycetophagidae,TRUE,TRUE,General,Hairy fungus beetles
+Mycetophilidae,TRUE,TRUE,General,Fungus gnats
+Mycteridae,TRUE,TRUE,Pollinators,Flower beetles
+Mydidae,TRUE,TRUE,General,Stinging flies
+Mymaridae,TRUE,TRUE,Parasitoids,Fairy wasps
+Mymarommatidae,TRUE,TRUE,Parasitoids,False fairy wasps
+Myrmecolacidae,TRUE,TRUE,General,Strepsiptera
+Myrmeleontidae,TRUE,TRUE,Predators,Antlion lacewings
+Nabidae,TRUE,TRUE,Predators,Damselbugs
+Nannochoristidae,TRUE,TRUE,Predators,Scorpionflies
+Naucoridae,TRUE,TRUE,Water quality indicator,Creeping water bugs
+Nemestrinidae,TRUE,TRUE,Endoparasites of insects,Tangle-veined flies
+Nemonychidae,TRUE,TRUE,General,Pine flower weevils
+Nemopteridae,TRUE,TRUE,General,Spoonwings Neuroptera
+Nepidae,TRUE,TRUE,Predators,Water scorpions
+Nepticulidae,TRUE,TRUE,General,Midget moths
+Neriidae,TRUE,TRUE,General,Cactus flies
+Nesameletidae,TRUE,TRUE,Water quality indicator,Mayflies
+Nicoletiidae,TRUE,TRUE,General,Archaic Zygentoma insects
+Ninidae,TRUE,TRUE,General,Bugs
+Nitidulidae,TRUE,TRUE,Includes pests,Sap beetles
+Noctuidae,TRUE,TRUE,Includes pests,Armyworm moth
+Nolidae,TRUE,TRUE,General,Moths
+Nosodendridae,TRUE,TRUE,General,Beetles
+Noteridae,TRUE,TRUE,Water quality indicator,Water beetles
+Notodontidae,TRUE,TRUE,General,Prominent moths
+Notoligotomidae,TRUE,TRUE,General,Embiopteran insects
+Notonectidae,TRUE,TRUE,Predators,Backswimmers
+Notonemouridae,TRUE,TRUE,Water quality indicator,Stoneflies
+Nycteribiidae,TRUE,TRUE,Ectoparasites of bats,Bat flies
+Nymphalidae,TRUE,TRUE,Pollinators,Butterflies
+Nymphidae,TRUE,TRUE,Predators,Split-footed lacewings
+Ochteridae,TRUE,TRUE,Predators,Water bugs
+Odiniidae,TRUE,TRUE,General,Flies
+Odontoceridae,TRUE,TRUE,Water quality indicator,Mortarjoint casemakers Trichoptera
+Oeconesidae,TRUE,TRUE,General,Caddisflies
+Oecophoridae,TRUE,TRUE,General,Small moths
+Oedemeridae,TRUE,TRUE,General,False blister beetles
+Oenosandridae,TRUE,TRUE,General,Moths
+Oestridae,TRUE,TRUE,Parasites of mammals,Botflies
+Oligotomidae,TRUE,TRUE,General,Webspinners
+Ommatidae,TRUE,TRUE,General,Archaic beetles
+Oniscigastridae,TRUE,TRUE,Water quality indicator,Ephemeroptera
+Opostegidae,TRUE,TRUE,General,White eyecap moths
+Ormyridae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Ortheziidae,TRUE,TRUE,Includes pests,Ensign scale insects
+Orussidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Osmylidae,TRUE,TRUE,Predators,Stream lacewings
+Oxycarenidae,TRUE,TRUE,General,True bugs
+Pachygronthidae,TRUE,TRUE,General,True bugs
+Palaephatidae,TRUE,TRUE,General,Archaic moths
+Papilionidae,TRUE,TRUE,Pollinators,Butterflies
+Passalidae,TRUE,TRUE,General,Bess beetles
+Passandridae,TRUE,TRUE,Ectoparasitic of other insects,Parasitic flat bark beetles
+Pediciidae,TRUE,TRUE,General,Hairy-eyed craneflies
+Pediculidae,TRUE,TRUE,Ectoparasites of mammals,Body lice
+Pelecorhynchidae,TRUE,TRUE,Predators,Flies
+Peloridiidae,TRUE,TRUE,General,Moss bugs
+Pentatomidae,TRUE,TRUE,Includes pests,Stink bugs
+Pergidae,TRUE,TRUE,Includes pests,Sawflies
+Perilampidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Peripsocidae,TRUE,TRUE,General,Psocoptera
+Periscelididae,TRUE,TRUE,General,Flies
+Petaluridae,TRUE,TRUE,Predators,Dragonflies
+Phacopteronidae,TRUE,TRUE,General,Psyllids
+Phalacridae,TRUE,TRUE,Pollinators,Shining flower beetles
+Phalangopsidae,TRUE,TRUE,General,Crickets
+Phasmatidae,TRUE,TRUE,General,Stick insects
+Philopotamidae,TRUE,TRUE,Water quality indicator,Caddisflies
+Philopteridae,TRUE,TRUE,Ectoparasites of birds,Lice
+Philorheithridae,TRUE,TRUE,Predators,Trichoptera
+Philotarsidae,TRUE,TRUE,General,Psocoptera
+Phlaeothripidae,TRUE,TRUE,Includes pests,Thrips
+Phloeostichidae,TRUE,TRUE,General,Beetles
+Phoridae,TRUE,TRUE,General,Hump-backed flies
+Phylliidae,TRUE,TRUE,General,Leaf insects
+Phylloxeridae,TRUE,TRUE,Includes pests,Phylloxera
+Pieridae,TRUE,TRUE,Pollinators,Butterflies
+Piesmatidae,TRUE,TRUE,General,Ash-grey leaf bugs
+Piophilidae,TRUE,TRUE,General,Flies
+Pipunculidae,TRUE,TRUE,General,Big-headed flies
+Plataspidae,TRUE,TRUE,Includes pests,Shield-bugs
+Platycnemididae,TRUE,TRUE,Predators,Damselflies
+Platygastridae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Platypezidae,TRUE,TRUE,General,Flies
+Platystomatidae,TRUE,TRUE,General,Signal flies
+Plectrotarsidae,TRUE,TRUE,Water quality indicator,Trichoptera
+Pleidae,TRUE,TRUE,Predators,Pygmy backswimmers
+Plutellidae,TRUE,TRUE,Includes pests,Diamondback moths
+Polycentropodidae,TRUE,TRUE,Predators,Caddisflies
+Polyctenidae,TRUE,TRUE,Ectoparasites of bats,Parasitic bugs
+Polyplacidae,TRUE,TRUE,Ectoparasites of mammals,Lice
+Pompilidae,TRUE,TRUE,Parasitoids,Spider wasps
+Proctotrupidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Prosopistomatidae,TRUE,TRUE,Water quality indicator,Mayflies
+Prostomidae,TRUE,TRUE,General,Jugular-horned beetles
+Protocucujidae,TRUE,TRUE,General,Beetles
+Psephenidae,TRUE,TRUE,General,Aquatic beetles
+Pseudocaeciliidae,TRUE,TRUE,General,Psocoptera
+Pseudococcidae,TRUE,TRUE,Includes pests,Mealybugs
+Psilidae,TRUE,TRUE,General,Rust flies
+Psocidae,TRUE,TRUE,General,Barklice
+Psychidae,TRUE,TRUE,General,Bagworm moths
+Psychodidae,TRUE,TRUE,General,Drain flies
+Psychomyiidae,TRUE,TRUE,Predators,Caddisflies
+Psychopsidae,TRUE,TRUE,General,Silky lacewings
+Psyllidae,TRUE,TRUE,Include pests,Psyllids
+Psyllipsocidae,TRUE,TRUE,General,Cave barklice
+Pteromalidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Pterophoridae,TRUE,TRUE,General,Plume moths
+Pthiridae,TRUE,TRUE,Ectoparasitoids of mammals,Lice
+Ptiliidae,TRUE,TRUE,General,Small beetles
+Ptilodactylidae,TRUE,TRUE,General,Toe winged beetles
+Ptinidae,TRUE,TRUE,Includes pests,Wood-boring beetles
+Pulicidae,TRUE,TRUE,Ectoparasites,Fleas
+Pygidicranidae,TRUE,TRUE,General,Earwigs
+Pygiopsyllidae,TRUE,TRUE,Endoparasites of mammals,Fleas
+Pyralidae,TRUE,TRUE,Includes pests,Snout moths
+Pyrgomorphidae,TRUE,TRUE,General,Grasshoppers
+Pyrgotidae,TRUE,TRUE,Endoparasitoids,Picture-winged flies
+Pyrochroidae,TRUE,TRUE,General,Fire-coloured beetles
+Pyrrhocoridae,TRUE,TRUE,General,Red bugs
+Pythidae,TRUE,TRUE,General,Dead log bark beetles
+Reduviidae,TRUE,TRUE,Predators,Predator bugs
+Rhagionidae,TRUE,TRUE,General,Snipe flies
+Rhaphidophoridae,TRUE,TRUE,General,Cave crickets
+Rhiniidae,TRUE,TRUE,General,Flies
+Rhinophoridae,TRUE,TRUE,General,Woodlouse flies
+Rhinotermitidae,TRUE,TRUE,Includes pests,Termites
+Rhopalidae,TRUE,TRUE,Includes pests,Scentless plant bugs
+Rhopalopsyllidae,TRUE,TRUE,Ectoparasites,Fleas
+Rhyparochromidae,TRUE,TRUE,General,Seed bugs 
+Ricaniidae,TRUE,TRUE,Insect pests,Planthoppers
+Ricinidae,TRUE,TRUE,Ectoparasites of birds,Chewing lice
+Riodinidae,TRUE,TRUE,Pollinators,Butterflies
+Ripiphoridae,TRUE,TRUE,Hypermetamorphic parasitoids,Wedge-shaped beetles
+Roeslerstammiidae,TRUE,TRUE,General,Moths
+Saldidae,TRUE,TRUE,General,Shore bugs
+Salpingidae,TRUE,TRUE,General,Narrow-waisted bark beetles
+Sarcophagidae,TRUE,TRUE,General,Flesh flies
+Saturniidae,TRUE,TRUE,General,Moths
+Scarabaeidae,TRUE,TRUE,General,Scarab beetles
+Scatopsidae,TRUE,TRUE,General,Dung midges
+Scelionidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Scenopinidae,TRUE,TRUE,General,Window flies
+Schizopteridae,TRUE,TRUE,General,Small true bugs
+Sciaridae,TRUE,TRUE,General,Dark-winged fungus gnats
+Sciomyzidae,TRUE,TRUE,Predators,Snail-killing flies
+Scirtidae,TRUE,TRUE,General,Marsh beetles
+Scolebythidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Scoliidae,TRUE,TRUE,Pollinators,Flower wasps
+Scraptiidae,TRUE,TRUE,Pollinators,False flower beetles
+Scutelleridae,TRUE,TRUE,Includes pests,Jewel bugs
+Scythrididae,TRUE,TRUE,Includes pests,Small moths
+Sepsidae,TRUE,TRUE,General,Black scavenger flies
+Sesiidae,TRUE,TRUE,Pollinators,Diurnal moths
+Sialidae,TRUE,TRUE,Predators,Alderflies
+Signiphoridae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Silphidae,TRUE,TRUE,General,Carrion beetles
+Silvanidae,TRUE,TRUE,General,Silvan flat bark beetles
+Simuliidae,TRUE,TRUE,Water quality indicator,Black flies
+Siricidae,TRUE,TRUE,General,Wood-eating sawflies
+Sisyridae,TRUE,TRUE,Predators,Spongeflies
+Sphaeriusidae,TRUE,TRUE,Predators,Water beetles
+Sphaeroceridae,TRUE,TRUE,General,Small dung flies
+Sphecidae,TRUE,TRUE,Pollinators,Sand wasps
+Sphindidae,TRUE,TRUE,General,Cryptic slime mould beetles
+Sphingidae,TRUE,TRUE,Pollinators,Hawk moths
+Spongiphoridae,TRUE,TRUE,General,Earwigs
+Staphylinidae,TRUE,TRUE,Predators,Rove beetles
+Stenocephalidae,TRUE,TRUE,General,True bugs
+Stenopsocidae,TRUE,TRUE,General,Psocoptera
+Stenopsychidae,TRUE,TRUE,Water quality indicator,Caddisflies
+Stephanidae,TRUE,TRUE,Parasitoids,Crown wasps
+Stephanocircidae,TRUE,TRUE,Ectoparasites of rodents,Fleas
+Streblidae,TRUE,TRUE,Ectoparasites of bats,Bat flies
+Strongylophthalmyiidae,TRUE,TRUE,General,Long-legged flies
+Stylopidae,TRUE,TRUE,Parasitoids,Twisted-winged Strepsiptera
+Synlestidae,TRUE,TRUE,Predators,Damselflies
+Synthemistidae,TRUE,TRUE,Predators,Tigertail dragonflies
+Syrphidae,TRUE,TRUE,Pollinators,Hoverflies
+Tabanidae,TRUE,TRUE,Includes pests,Horse flies
+Tachinidae,TRUE,TRUE,General,Tachinid flies
+Tanaostigmatidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Tanyderidae,TRUE,TRUE,Water quality indicator,Primitive crane flies
+Tasimiidae,TRUE,TRUE,Water quality indicator,Trichoptera
+Tenebrionidae,TRUE,TRUE,General,Darkling beetles
+Tenthredinidae,TRUE,TRUE,General,Sawflies
+Tephritidae,TRUE,TRUE,Includes pests,Fruit flies
+Termitidae,TRUE,TRUE,Includes pests,Termites
+Termopsidae,TRUE,TRUE,Includes pests,Termites
+Tessaratomidae,TRUE,TRUE,General,True bugs
+Tetracampidae,TRUE,TRUE,Parasitoids,Parasitoid wasps
+Tetrigidae,TRUE,TRUE,General,Crickets
+Tettigarctidae,TRUE,TRUE,General,Hairy cicadas
+Tettigoniidae,TRUE,TRUE,General,Katydids
+Thaumaleidae,TRUE,TRUE,General,Solitary midges
+Thaumastocoridae,TRUE,TRUE,General,True bugs
+Therevidae,TRUE,TRUE,Predators,Flies
+Thripidae,TRUE,TRUE,Includes pests,Thrips
+Throscidae,TRUE,TRUE,General,False click beetles
+Thyrididae,TRUE,TRUE,General,Picture-winged moths
+Tineidae,TRUE,TRUE,General,Fungus moths
+Tineodidae,TRUE,TRUE,General,False plume moths
+Tingidae,TRUE,TRUE,Includes pests,Lace bugs
+Tiphiidae,TRUE,TRUE,Parasitoids,Largw wasps
+Tipulidae,TRUE,TRUE,Predators,Crane flies
+Tortricidae,TRUE,TRUE,Includes pests,Leafroller moths
+Torymidae,TRUE,TRUE,Parasitoids,Metallic wasps
+Trichoceridae,TRUE,TRUE,General,Winter crane flies
+Trichodectidae,TRUE,TRUE,Ectoparasites of mammals,Louse
+Trichogrammatidae,TRUE,TRUE,Parasitoids,Small wasps
+Trichopsocidae,TRUE,TRUE,General,Small psocopterans
+Tridactylidae,TRUE,TRUE,General,Mole crickets
+Trigonalidae,TRUE,TRUE,General,Wasps
+Trigonidiidae,TRUE,TRUE,General,Crickets
+Triozidae,TRUE,TRUE,Include pests,Psyllids
+Trogidae,TRUE,TRUE,General,Hide beetles
+Trogiidae,TRUE,TRUE,General,Booklice
+Trogossitidae,TRUE,TRUE,General,Bark-gnawing beetles
+Tropiduchidae,TRUE,TRUE,General,Planthoppers
+Tryonicidae,TRUE,TRUE,General,Cockroaches
+Ulidiidae,TRUE,TRUE,General,Picture-winged flies
+Uraniidae,TRUE,TRUE,Pollinators,Tropical moths
+Veliidae,TRUE,TRUE,Predators,Heteropteran bugs
+Vespidae,TRUE,TRUE,General,Wasps
+Xiphydriidae,TRUE,TRUE,General,Wood wasps
+Yponomeutidae,TRUE,TRUE,Includes pests,Ermine moths
+Zopheridae,TRUE,TRUE,General,Beetles
+Zorotypidae,TRUE,TRUE,General,Angel insects
+Zygaenidae,TRUE,TRUE,Pollinators,Burnet moths
