@@ -449,7 +449,7 @@ filterSample <- function() {
     fluidRow(column(width=12,
                     div(class="col-md-6",
                         numericInput("filter_top_taxa", "Number of most abundant OTUs to keep",
-                                     value=Inf, min=0, step=1))
+                                     value=0, min=0, step=1))
     )),
     h4('Sample filtering'),
     fluidRow(column(width=12,
@@ -476,11 +476,12 @@ observeEvent(input$filterData, {
   } else {
     shinyWidgets::updateSwitchInput(session = session, inputId = "useFiltf", value = FALSE)
     
-    #apply_filters 
+    # apply_filters 
     try(
       filter_physeq(filter_all(input, select_physeq())$ps),
       silent = TRUE,
-      outFile = showModal(dataInput(failed = TRUE)))
+      outFile = showModal(dataInput(failed = TRUE))
+      )
     
     if (class(filter_physeq()) == "phyloseq") {
       message("[metabrowser] Filtered data")

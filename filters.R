@@ -465,7 +465,7 @@ filter_all <- function(input, physeq){
     }
     
     # Extract most abundant taxa
-    if( input$filter_top_taxa < Inf & is(ps0, "phyloseq")){
+    if( input$filter_top_taxa > 0 & is(ps0, "phyloseq")){
         ps0 <- phyloseq_filter_top_taxa(
             ps0, 
             n = input$filter_top_taxa
@@ -485,7 +485,7 @@ filter_all <- function(input, physeq){
     }
     
     # Sample richness filtering
-    if( input$filter_sample_taxa_threshold < Inf & is(ps0, "phyloseq")){
+    if( input$filter_sample_taxa_threshold > 0 & is(ps0, "phyloseq")){
         ps0 <- phyloseq_richness_filter(ps0, mintaxa = input$filter_sample_taxa_threshold)
         out$filter_richness <- ntaxa(ps0)
     }
